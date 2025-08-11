@@ -18,11 +18,10 @@ export default function Toast({ message, type, onClose }) {
 
   return (
     <div
-    className={`absolute -top-14 left-1/2 transform -translate-x-1/2 w-[90%] max-w-sm mt-10 px-4 py-2 rounded-lg shadow-lg text-white text-[16px] text-center font-medium transition-all duration-300
+      className={`absolute -top-14 left-1/2 transform -translate-x-1/2 w-[90%] max-w-sm mt-10 px-4 py-2 rounded-lg shadow-lg text-white text-[16px] text-center font-medium transition-all duration-300
       ${visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"}
       ${type === "success" ? "bg-green-500" : "bg-red-500"}`}
-  >
-  
+    >
       {message}
     </div>
   );

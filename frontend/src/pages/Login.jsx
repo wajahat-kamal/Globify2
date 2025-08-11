@@ -3,9 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import Toast from "../components/Toast";
 import axios from "axios";
-import {Helmet} from 'react-helmet'
-import {useDispatch} from 'react-redux'
-import {setUser} from '../redux/authSlice'
+import { Helmet } from "react-helmet";
+import { useDispatch } from "react-redux";
+import { setUser } from "../redux/authSlice";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -44,11 +44,12 @@ function Login() {
       if (res.data.success) {
         setToast({ show: true, message: res.data.message, type: "success" });
         setTimeout(() => navigate("/"), 2000);
-        dispatch(setUser(res.data.user))
+        dispatch(setUser(res.data.user));
       }
     } catch (error) {
       console.error("Login Error:", error);
-      const errorMessage = error.response?.data?.message || "Login failed! Please try again.";
+      const errorMessage =
+        error.response?.data?.message || "Login failed! Please try again.";
       setToast({
         show: true,
         message: errorMessage,

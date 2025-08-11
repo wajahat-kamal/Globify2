@@ -6,7 +6,6 @@ function Hero() {
     <div className="px-4 md:px-6 lg:px-8 bg-[#1E1E2E] text-white">
       {/* <div className="px-4 md:px-6 lg:px-8 bg-[#d8e3f0] text-gray-800"> */}
       <div className="max-w-7xl mx-auto md:mx-20 min-h-[600px] flex flex-col-reverse md:flex-row items-center justify-between text-center md:text-left py-10">
-        
         {/* Text Section */}
         <div className="w-full md:w-1/2 space-y-3 mt-5 md:mt-0">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">

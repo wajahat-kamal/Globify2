@@ -56,7 +56,8 @@ function Signup() {
       }
     } catch (error) {
       console.error("Signup Error:", error);
-      const errorMessage = error.response?.data?.message || "Signup failed! Please try again.";
+      const errorMessage =
+        error.response?.data?.message || "Signup failed! Please try again.";
       setToast({
         show: true,
         message: errorMessage,
