@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/authSlice";
 import axios from "axios";
-import { Search } from 'lucide-react'
+import { Search } from "lucide-react";
 
 function MobileNavbar({ toggleMenu, user, isOpen }) {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
   const handleLogout = async () => {
     try {
       await axios.get("http://localhost:8000/api/v1/user/logout", {
-        withCredentials: true
+        withCredentials: true,
       });
       dispatch(logout());
       toggleMenu();
@@ -51,19 +51,26 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
       </Link>
 
       {user ? (
-       <>
-       <Link to={"/dashboard"}>
-         <button className="w-full bg-gray-700 px-3 py-2 text-[17px] rounded-md hover:bg-gray-600 transition flex justify-center items-center flex-row gap-2" >
-           <picture>
-           <img src="user-avatar.webp" className="w-6 h-6 rounded-full bg-white" alt="" />
-           </picture>
-           Wajahat Kamal
-         </button>
-       </Link>
-        <button className="w-full bg-gray-700 px-4 py-2 mt-2 text-[17px] rounded-md hover:bg-gray-600 transition" onClick={handleLogout}>
-        Logout
-      </button>
-      </>
+        <>
+          <Link to={"/dashboard"}>
+            <button className="w-full bg-gray-700 px-3 py-2 text-[17px] rounded-md hover:bg-gray-600 transition flex justify-center items-center flex-row gap-2">
+              <picture>
+                <img
+                  src="user-avatar.webp"
+                  className="w-6 h-6 rounded-full bg-white"
+                  alt=""
+                />
+              </picture>
+              {user?.firstName} {user?.lastName}
+            </button>
+          </Link>
+          <button
+            className="w-full bg-gray-700 px-4 py-2 mt-2 text-[17px] rounded-md hover:bg-gray-600 transition"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        </>
       ) : (
         <>
           <Link to="/signup" onClick={toggleMenu}>
@@ -90,7 +97,7 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
         </button>
       </div>
     </div>
-  )
+  );
 }
 
-export default MobileNavbar
+export default MobileNavbar;

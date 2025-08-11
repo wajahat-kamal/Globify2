@@ -10,13 +10,13 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const {user} = useSelector(store=>store.auth);
+  const { user } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
 
   const handleLogout = async () => {
     try {
       await axios.get("http://localhost:8000/api/v1/user/logout", {
-        withCredentials: true
+        withCredentials: true,
       });
       dispatch(logout());
     } catch (error) {
@@ -68,22 +68,25 @@ function Navbar() {
           {/* Signup/Login as buttons */}
           {user ? (
             <>
-            <Link to={"/dashboard"}>
-              <button className="bg-gray-700 px-3 py-2 text-[17px] rounded-md hover:bg-gray-600 transition flex justify-center items-center flex-row gap-1" >
-                <picture>
-                <img src="user-avatar.webp" className="w-6 h-6 rounded-full bg-white" alt="" />
-                </picture>
-                {/* Wajahat Kamal */}
-                {}
+              <Link to={"/dashboard"}>
+                <button className="bg-gray-700 px-3 py-2 text-[17px] rounded-md hover:bg-gray-600 transition flex justify-center items-center flex-row gap-1.5">
+                  <picture>
+                    <img
+                      src="user-avatar.webp"
+                      className="w-6 h-6 rounded-full bg-white"
+                      alt=""
+                    />
+                  </picture>
+                  {user?.firstName} {user?.lastName}
+                </button>
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="bg-gray-700 px-4 py-2 text-[17px] rounded-md hover:bg-gray-600 transition"
+              >
+                Logout
               </button>
-            </Link>
-             <button 
-               onClick={handleLogout}
-               className="bg-gray-700 px-4 py-2 text-[17px] rounded-md hover:bg-gray-600 transition"
-             >
-             Logout
-           </button>
-           </>
+            </>
           ) : (
             <>
               <Link to={"/signup"}>
