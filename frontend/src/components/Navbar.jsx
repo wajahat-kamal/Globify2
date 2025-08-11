@@ -31,9 +31,9 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <div className="flex items-center gap-10 flex-row">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-0.5">
-            <img src="/main-logo.png" alt="logo" className="w-10 h-10" />
-            <span className="text-2xl font-bold">WK Globify</span>
+          <Link to="/" className="flex items-center gap-1.5">
+            <img src="/main-logo.png" alt="logo" className="w-10 h-10 rounded-full" />
+            <span className="text-2xl font-bold">WK GLOBIFY</span>
           </Link>
 
           {/* Search - Desktop */}
