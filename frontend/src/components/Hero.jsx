@@ -24,7 +24,7 @@ function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row sm:space-x-3 space-y-3 sm:space-y-0 mt-4 justify-center md:justify-start">
-            <Link to="/dachbord">
+            <Link to="/dashboard">
               <button className="bg-gray-700 text-white font-semibold px-6 py-2 rounded-md hover:bg-gray-600 transition duration-300 w-full sm:w-auto">
                 Get Started
               </button>

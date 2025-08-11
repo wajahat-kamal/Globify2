@@ -9,6 +9,7 @@ import {setUser} from '../redux/authSlice'
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // Toast state
   const [toast, setToast] = useState({ show: false, message: "", type: "" });
@@ -27,6 +28,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     console.log(input);
 
     try {
@@ -46,11 +48,14 @@ function Login() {
       }
     } catch (error) {
       console.error("Login Error:", error);
+      const errorMessage = error.response?.data?.message || "Login failed! Please try again.";
       setToast({
         show: true,
-        message: "Login failed! Please try again.",
+        message: errorMessage,
         type: "error",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -128,9 +133,10 @@ function Login() {
 
             <button
               type="submit"
-              className="w-full py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition"
+              disabled={loading}
+              className="w-full bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Login
+              {loading ? "Signing in..." : "Sign In"}
             </button>
           </form>
         </div>

@@ -1,7 +1,27 @@
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/authSlice";
+import axios from "axios";
 import { Search } from 'lucide-react'
 
 function MobileNavbar({ toggleMenu, user, isOpen }) {
+  const dispatch = useDispatch();
+
+  const handleLogout = async () => {
+    try {
+      await axios.get("http://localhost:8000/api/v1/user/logout", {
+        withCredentials: true
+      });
+      dispatch(logout());
+      toggleMenu();
+    } catch (error) {
+      console.error("Logout error:", error);
+      dispatch(logout());
+      toggleMenu();
+    }
+  };
+
   return (
     <div
       className={`md:hidden bg-gray-800 px-4 text-[17px] pb-4 space-y-3 transform transition-transform duration-300 ease-in-out ${
@@ -40,7 +60,7 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
            Wajahat Kamal
          </button>
        </Link>
-        <button className="w-full bg-gray-700 px-4 py-2 mt-2 text-[17px] rounded-md hover:bg-gray-600 transition">
+        <button className="w-full bg-gray-700 px-4 py-2 mt-2 text-[17px] rounded-md hover:bg-gray-600 transition" onClick={handleLogout}>
         Logout
       </button>
       </>

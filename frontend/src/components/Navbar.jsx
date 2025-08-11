@@ -2,13 +2,29 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, Search, X } from "lucide-react";
 import MobileNavbar from "./MobileNavbar";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/authSlice";
+import axios from "axios";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const {user} = useSelector(store=>store.auth);
+  const dispatch = useDispatch();
+
+  const handleLogout = async () => {
+    try {
+      await axios.get("http://localhost:8000/api/v1/user/logout", {
+        withCredentials: true
+      });
+      dispatch(logout());
+    } catch (error) {
+      console.error("Logout error:", error);
+      // Even if API call fails, clear local state
+      dispatch(logout());
+    }
+  };
 
   return (
     <nav className="fixed top-0 z-50 w-full bg-gray-800 text-white shadow-md">
@@ -61,7 +77,10 @@ function Navbar() {
                 {}
               </button>
             </Link>
-             <button className="bg-gray-700 px-4 py-2 text-[17px] rounded-md hover:bg-gray-600 transition">
+             <button 
+               onClick={handleLogout}
+               className="bg-gray-700 px-4 py-2 text-[17px] rounded-md hover:bg-gray-600 transition"
+             >
              Logout
            </button>
            </>

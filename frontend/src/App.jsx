@@ -30,6 +30,10 @@ function App() {
       path: "/login",
       element: <><Navbar /> <Login /></>
     },
+    {
+      path: "/dashboard",
+      element: <><Navbar /> <div className="mt-20 p-8 text-center"><h1 className="text-2xl font-bold">Dashboard Coming Soon!</h1></div></>
+    },
   ])
 
 

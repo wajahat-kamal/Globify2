@@ -16,9 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({extended:true}));
 app.use(cors({
-    origin: process.env.NODE_ENV === "production" 
-        ? ["https://mern-blog-ha28.onrender.com"] 
-        : ["http://localhost:3000", "http://localhost:5173"],
+    origin:  "http://localhost:5173",
     credentials: true
 }))
 

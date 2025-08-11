@@ -9,6 +9,7 @@ function Signup() {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [user, setUser] = useState({
     firstName: "",
@@ -26,6 +27,7 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const res = await axios.post(
@@ -54,11 +56,14 @@ function Signup() {
       }
     } catch (error) {
       console.error("Signup Error:", error);
+      const errorMessage = error.response?.data?.message || "Signup failed! Please try again.";
       setToast({
         show: true,
-        message: "Signup failed! Please try again.",
+        message: errorMessage,
         type: "error",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -186,9 +191,10 @@ function Signup() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition"
+              disabled={loading}
+              className="w-full bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Sign Up
+              {loading ? "Creating Account..." : "Create Account"}
             </button>
           </form>
         </div>
