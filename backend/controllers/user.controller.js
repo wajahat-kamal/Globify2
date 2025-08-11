@@ -1,5 +1,6 @@
 import { User } from "../models/user.model.js";
 import bcrypt from "bcryptjs"
+import jwt from "jsonwebtoken"
 
 export const signup = async (req, res) => {
     try {
@@ -65,7 +66,7 @@ export const signup = async (req, res) => {
 export const login = async(req, res) => {
     try {
         const {email,  password } = req.body;
-        if (!email && !password) {
+        if (!email || !password) {
             return res.status(400).json({
                 success: false,
                 message: "All fields are required"
@@ -112,5 +113,9 @@ export const logout = async (_, res) => {
         })
     } catch (error) {
         console.log(error);
+        return res.status(500).json({
+            success: false,
+            message: "Failed to logout"
+        })
     }
 }
