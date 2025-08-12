@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { EyeOff, Eye } from "lucide-react";
+import { EyeOff, Eye, Loader2 } from "lucide-react";
 import axios from "axios";
 import Toast from "../components/Toast";
 import { Helmet } from "react-helmet";
@@ -195,7 +195,8 @@ function Signup() {
               disabled={loading}
               className="w-full bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? "Creating Account..." : "Create Account"}
+              {loading ? <><Loader2 className="mr-2 w-4 h-4 animate-spin"/>Please wait...</> : "Create Account"}
+            
             </button>
           </form>
         </div>

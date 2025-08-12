@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, Search, X } from "lucide-react";
 import MobileNavbar from "./MobileNavbar";
 import { useSelector, useDispatch } from "react-redux";
@@ -12,13 +12,17 @@ function Navbar() {
 
   const { user } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const handleLogout = async () => {
     try {
       await axios.get("http://localhost:8000/api/v1/user/logout", {
         withCredentials: true,
       });
-      dispatch(logout());
+      if (res.data.success) {
+        navigate("/")
+        dispatch(logout());
+      }
     } catch (error) {
       console.error("Logout error:", error);
       dispatch(logout());

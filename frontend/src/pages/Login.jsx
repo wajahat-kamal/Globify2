@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
 import Toast from "../components/Toast";
 import axios from "axios";
 import { Helmet } from "react-helmet";
@@ -137,7 +137,7 @@ function Login() {
               disabled={loading}
               className="w-full bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? "Signing in..." : "Sign In"}
+              {loading ? <><Loader2 className=" w-4 h-4 animate-spin"/>Please wait...</> : "Login"}
             </button>
           </form>
         </div>
