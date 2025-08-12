@@ -21,18 +21,21 @@ function Navbar() {
       dispatch(logout());
     } catch (error) {
       console.error("Logout error:", error);
-      // Even if API call fails, clear local state
       dispatch(logout());
     }
   };
 
   return (
-    <nav className="fixed top-0 z-50 w-full bg-gray-800 text-white shadow-md">
+    <nav className="fixed top-0 z-50 w-full bg-gray-800 text-white shadow-md animate-slideDown">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <div className="flex items-center gap-10 flex-row">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-1.5">
-            <img src="/main-logo.png" alt="logo" className="w-10 h-10 rounded-full" />
+            <img
+              src="/main-logo.png"
+              alt="logo"
+              className="w-10 h-10 rounded-full"
+            />
             <span className="text-2xl font-bold">WK GLOBIFY</span>
           </Link>
 
@@ -65,7 +68,6 @@ function Navbar() {
             Blogs
           </Link>
 
-          {/* Signup/Login as buttons */}
           {user ? (
             <>
               <Link to={"/dashboard"}>
@@ -112,7 +114,6 @@ function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-
       <MobileNavbar toggleMenu={toggleMenu} user={user} isOpen={isOpen} />
     </nav>
   );

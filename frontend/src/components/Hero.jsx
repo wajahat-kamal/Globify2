@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../index.css"; // Import custom CSS animations
 
 function Hero() {
   return (
-    <div className="px-4 md:px-6 lg:px-8 bg-gradient-to-r from-[#d8e3f0] to-[#f0f4fa] text-gray-800">
+    <div className="px-4 md:px-6 lg:px-8 bg-gradient-to-r from-[#d8e3f0] to-[#f0f4fa] text-gray-800 overflow-hidden">
       <div className="max-w-7xl mx-auto md:mx-20 min-h-[600px] flex flex-col-reverse md:flex-row items-center justify-between text-center md:text-left py-14">
-        
         {/* Text Section */}
-        <div className="w-full md:w-1/2 space-y-5 mt-8 md:mt-0">
+        <div className="w-full md:w-1/2 space-y-5 mt-8 md:mt-0 animate-slideLeft">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
             Explore the World <br />
             with{" "}
@@ -41,7 +41,7 @@ function Hero() {
         </div>
 
         {/* Image Section */}
-        <div className="w-[85%] md:w-[45%] relative group">
+        <div className="w-[85%] md:w-[45%] relative group animate-slideRight">
           <img
             src="/main-heroSection.png"
             alt="Hero section illustration"

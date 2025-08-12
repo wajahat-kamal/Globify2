@@ -11,7 +11,7 @@ function Home() {
       </Helmet>
       <div className="mt-15">
         <Hero />
-        <Blogs/>
+        <Blogs />
       </div>
     </>
   );
