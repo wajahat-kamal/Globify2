@@ -80,7 +80,7 @@ function Login() {
           )}
 
           <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
-            Welcome Back
+            Welcome Back | Login
           </h2>
 
           <form className="space-y-4" onSubmit={handleSubmit}>
