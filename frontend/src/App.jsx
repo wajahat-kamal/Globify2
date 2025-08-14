@@ -6,6 +6,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Dashbord from "./pages/Dashbord";
 
 function App() {
   const router = createBrowserRouter([
@@ -53,10 +54,7 @@ function App() {
       path: "/dashboard",
       element: (
         <>
-          <Navbar />{" "}
-          <div className="mt-20 p-8 text-center">
-            <h1 className="text-2xl font-bold">Dashboard Coming Soon!</h1>
-          </div>
+          <Navbar /> <Dashbord/> <Footer/>
         </>
       ),
     },
