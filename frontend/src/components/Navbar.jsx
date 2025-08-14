@@ -32,7 +32,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 z-50 w-full bg-gray-800 text-white shadow-md animate-slideDown">
+    <nav className="fixed top-0 z-50 w-full bg-gray-800 text-white border-b-2 border-gray-500 animate-slideDown">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <div className="flex items-center gap-10 flex-row">
           {/* Logo */}

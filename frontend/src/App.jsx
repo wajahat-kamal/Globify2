@@ -6,7 +6,8 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Dashbord from "./pages/Dashbord";
+import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
 
 function App() {
   const router = createBrowserRouter([
@@ -54,9 +55,27 @@ function App() {
       path: "/dashboard",
       element: (
         <>
-          <Navbar /> <Dashbord/> <Footer/>
+          <Navbar /> <Dashboard/>
         </>
       ),
+      children: [
+        {
+          path: "profile",
+          element: <Profile/>
+        },
+        {
+          path: "your-blog",
+          element: <Profile/>
+        },
+        {
+          path: "comments",
+          element: <Profile/>
+        },
+        {
+          path: "write-blog",
+          element: <Profile/>
+        },
+      ]
     },
   ]);
 
