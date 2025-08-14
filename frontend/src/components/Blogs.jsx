@@ -10,7 +10,7 @@ function Blogs() {
       </h1>
 
       {/* Blog Cards Container */}
-      <div className="flex flex-col md:flex-row justify-center flex-wrap items-center gap-10">
+      <div className="flex flex-col md:flex-row justify-center flex-wrap items-center gap-5">
         {/* Blog Card */}
         <Blog />
         <Blog />

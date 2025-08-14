@@ -2,7 +2,7 @@ import React from "react";
 
 function Blog() {
   return (
-    <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-xs border border-gray-200">
+    <div className="bg-white rounded-md overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-[350px] border border-gray-200">
       {/* Blog Image */}
       <div className="overflow-hidden">
         <img
