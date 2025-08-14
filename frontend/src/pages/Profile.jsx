@@ -13,7 +13,7 @@ const Profile = () => {
       github: "https://github.com/wajahat-kamal",
       linkedin: "https://linkedin.com/",
       twitter: "https://twitter.com/",
-      Instagram: "https://instagram.com/"
+      Instagram: "https://instagram.com/",
     },
   };
 
@@ -31,7 +31,9 @@ const Profile = () => {
         {/* Info */}
         <div className="flex-1 space-y-3">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-gray-800">Welcome, {user.name}!</h2>
+            <h2 className="text-2xl font-bold text-gray-800">
+              Welcome, {user.name}!
+            </h2>
             <button className="flex items-center gap-1 px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
               <Pencil size={16} /> Edit
             </button>
