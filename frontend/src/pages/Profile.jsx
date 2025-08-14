@@ -1,9 +1,84 @@
-import React from 'react'
+import React from "react";
+import { Pencil, Github, Linkedin, Twitter, Instagram } from "lucide-react";
 
-function Profile() {
+const Profile = () => {
+  // Dummy user data — baad me tum API se fetch kar sakte ho
+  const user = {
+    name: "Wajahat Kamal",
+    email: "wajahatkamal3.0@gmail.com",
+    bio: "MERN Stack Developer | Passionate about coding and creating amazing UIs.",
+    avatar: "https://i.pravatar.cc/150?img=12",
+    joined: "July 2025",
+    social: {
+      github: "https://github.com/wajahat-kamal",
+      linkedin: "https://linkedin.com/",
+      twitter: "https://twitter.com/",
+      Instagram: "https://instagram.com/"
+    },
+  };
+
   return (
-    <div>Profile</div>
-  )
-}
+    <div className="p-6 pt-20 ml-[300px] bg-gray-900 text-white min-h-screen">
+      {/* Profile Card */}
+      <div className="bg-white rounded-xl shadow-md p-6 py-8 flex flex-col md:flex-row items-center md:items-start gap-6 w-full">
+        {/* Avatar */}
+        <img
+          src={user.avatar}
+          alt="User Avatar"
+          className="w-50 h-50 rounded-full border-4 border-blue-500 shadow-lg"
+        />
 
-export default Profile
+        {/* Info */}
+        <div className="flex-1 space-y-3">
+          <div className="flex items-center justify-between">
+            <h2 className="text-2xl font-bold text-gray-800">Welcome, {user.name}!</h2>
+            <button className="flex items-center gap-1 px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+              <Pencil size={16} /> Edit
+            </button>
+          </div>
+          <p className="text-gray-600">{user.bio}</p>
+          <p className="text-gray-500 text-sm">📧 Email: {user.email}</p>
+          <p className="text-gray-500 text-sm">📅 Joined: {user.joined}</p>
+
+          {/* Social Links */}
+          <div className="flex gap-4 mt-4">
+            <a
+              href={user.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 hover:text-black transition"
+            >
+              <Github size={22} />
+            </a>
+            <a
+              href={user.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-700 hover:text-blue-900 transition"
+            >
+              <Linkedin size={22} />
+            </a>
+            <a
+              href={user.social.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sky-500 hover:text-sky-700 transition"
+            >
+              <Twitter size={22} />
+            </a>
+            <a
+              href={user.social.Instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sky-500 hover:text-sky-700 transition"
+            >
+              <Instagram size={22} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Profile;

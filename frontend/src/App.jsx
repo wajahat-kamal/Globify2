@@ -8,6 +8,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
+import YourBlogs from "./pages/YourBlogs";
+import Comments from './pages/Comments'
+import CreateBlog from "./pages/CreateBlog"
 
 function App() {
   const router = createBrowserRouter([
@@ -65,15 +68,15 @@ function App() {
         },
         {
           path: "your-blog",
-          element: <Profile/>
+          element: <YourBlogs/>
         },
         {
           path: "comments",
-          element: <Profile/>
+          element: <Comments/>
         },
         {
           path: "write-blog",
-          element: <Profile/>
+          element: <CreateBlog/>
         },
       ]
     },
