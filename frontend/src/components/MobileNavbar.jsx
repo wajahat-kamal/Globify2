@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/authSlice";
@@ -7,6 +7,7 @@ import { Search } from "lucide-react";
 
 function MobileNavbar({ toggleMenu, user, isOpen }) {
   const dispatch = useDispatch();
+  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -20,6 +21,7 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
       dispatch(logout());
       toggleMenu();
     }
+    setShowLogoutPopup(false);
   };
 
   return (
@@ -65,8 +67,8 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
             </button>
           </Link>
           <button
-            className="w-full bg-gray-700 px-4 py-2 mt-2 text-[17px] rounded-md hover:bg-gray-600 transition"
-            onClick={handleLogout}
+            className="w-full bg-gray-700 px-4 py-2 mt-2 text-[17px] rounded-md hover:bg-gray-600 transition cursor-pointer"
+            onClick={() => setShowLogoutPopup(true)}
           >
             Logout
           </button>
@@ -86,7 +88,32 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
         </>
       )}
 
-      <div className="flex items-center gap-2 bg-gray-600 rounded-md overflow-hidden mt-2">
+      {showLogoutPopup && (
+        <div className="fixed bottom-70 -left-15 flex justify-center items-center z-50">
+          {/* Popup Box */}
+          <div className="bg-white rounded-lg shadow-lg w-80 p-6 text-center animate-fadeIn">
+            <h2 className="text-lg font-semibold text-gray-800 mb-4">
+              Are you sure you want to logout?
+            </h2>
+            <div className="flex justify-center gap-3">
+              <button
+                onClick={handleLogout}
+                className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+              >
+                Yes, Logout
+              </button>
+              <button
+                onClick={() => setShowLogoutPopup(false)}
+                className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400 transition cursor-pointer"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="flex items-center gap-2 bg-gray-600 rounded-md overflow-hidden mt-1">
         <input
           type="text"
           placeholder="Search..."

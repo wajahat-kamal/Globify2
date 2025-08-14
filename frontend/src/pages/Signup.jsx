@@ -46,7 +46,7 @@ function Signup() {
           type: "success",
         });
         setUser({ firstName: "", lastName: "", email: "", password: "" });
-        setTimeout(() => navigate("/login"), 2000);
+        setTimeout(() => navigate("/login"), 1200);
       } else {
         setToast({
           show: true,

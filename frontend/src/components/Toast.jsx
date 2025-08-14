@@ -11,7 +11,7 @@ export default function Toast({ message, type, onClose }) {
     const timer = setTimeout(() => {
       setVisible(false);
       setTimeout(onClose, 200); // Wait for animation to finish
-    }, 1500);
+    }, 800);
 
     return () => clearTimeout(timer);
   }, [onClose]);

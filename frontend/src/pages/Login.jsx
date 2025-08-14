@@ -43,7 +43,7 @@ function Login() {
 
       if (res.data.success) {
         setToast({ show: true, message: res.data.message, type: "success" });
-        setTimeout(() => navigate("/"), 2000);
+        setTimeout(() => navigate("/"), 1200);
         dispatch(setUser(res.data.user));
       }
     } catch (error) {
