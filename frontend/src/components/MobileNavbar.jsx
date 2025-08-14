@@ -91,7 +91,7 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
       {showLogoutPopup && (
         <div className="fixed bottom-70 -left-15 flex justify-center items-center z-50">
           {/* Popup Box */}
-          <div className="bg-white rounded-lg shadow-lg w-80 p-6 text-center animate-fadeIn">
+          <div className="bg-white rounded-lg shadow-lg w-80 p-6 text-center transform transition-all duration-300 ease-out opacity-0 translate-y-[-20px] animate-[fadeSlideIn_0.3s_ease-out_forwards]">
             <h2 className="text-lg font-semibold text-gray-800 mb-4">
               Are you sure you want to logout?
             </h2>
@@ -104,7 +104,7 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
               </button>
               <button
                 onClick={() => setShowLogoutPopup(false)}
-                className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400 transition cursor-pointer"
+                className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400 transition"
               >
                 Cancel
               </button>

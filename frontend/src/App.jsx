@@ -5,6 +5,7 @@ import Blogs from "./pages/Blogs";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   const router = createBrowserRouter([
@@ -12,7 +13,7 @@ function App() {
       path: "/",
       element: (
         <>
-          <Navbar /> <Home />
+          <Navbar /> <Home /> <Footer />
         </>
       ),
     },
@@ -20,7 +21,7 @@ function App() {
       path: "/about",
       element: (
         <>
-          <Navbar /> <About />
+          <Navbar /> <About /> <Footer />
         </>
       ),
     },
@@ -28,7 +29,7 @@ function App() {
       path: "/blogs",
       element: (
         <>
-          <Navbar /> <Blogs />
+          <Navbar /> <Blogs /> <Footer />
         </>
       ),
     },

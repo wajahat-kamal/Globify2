@@ -7,7 +7,9 @@ function About() {
     <Helmet>
       <title>About | WK Globify</title>
     </Helmet>
-    <div>About</div>
+    <div>
+      About
+      </div>
     </>
   )
 }
