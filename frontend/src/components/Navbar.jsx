@@ -120,7 +120,7 @@ function Navbar() {
       </div>
 
       {showLogoutPopup && (
-        <div className="fixed top-40 right-0 inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div className="fixed top-40 right-0 flex justify-center items-center z-50">
           {/* Popup Box */}
           <div className="bg-white rounded-lg shadow-lg w-80 p-6 text-center transform transition-all duration-300 ease-out opacity-0 translate-y-[-20px] animate-[fadeSlideIn_0.3s_ease-out_forwards]">
             <h2 className="text-lg font-semibold text-gray-800 mb-4">
