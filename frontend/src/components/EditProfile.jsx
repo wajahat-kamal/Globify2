@@ -113,6 +113,11 @@ const EditProfile = ({ isOpen, onClose }) => {
             ></textarea>
           </div>
 
+          <div>
+            <label>Picture</label>
+            <input type="file" id="file" accept="image/*" className="" />
+          </div>
+
           {/* Save Button */}
           <button
             type="submit"
