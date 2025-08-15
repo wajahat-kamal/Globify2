@@ -76,7 +76,7 @@ function Navbar() {
 
           {user ? (
             <>
-              <Link to={"/dashboard"}>
+              <Link to={"/dashboard/profile"}>
                 <button className="bg-gray-700 px-3 py-2 text-[17px] rounded-md hover:bg-gray-600 transition flex justify-center items-center flex-row gap-1.5">
                   <picture>
                     <img
