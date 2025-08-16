@@ -8,38 +8,41 @@ const Profile = () => {
   const user = {
     name: "Wajahat Kamal",
     email: "wajahatkamal3.0@gmail.com",
-    bio: "MERN Stack Developer | Passionate about coding and creating amazing UIs.",
+    description: "MERN Stack Developer | Passionate about coding and creating amazing UIs.",
     avatar: "https://i.pravatar.cc/150?img=12",
     social: {
       github: "https://github.com/wajahat-kamal",
       linkedin: "https://linkedin.com/",
       twitter: "https://twitter.com/",
-      Instagram: "https://instagram.com/",
+      instagram: "https://instagram.com/",
     },
   };
 
   return (
-    <div className="p-4 pt-20 md:ml-[300px] bg-gray-900 text-white min-h-screen">
+    <div className="p-6 pt-24 md:ml-[300px] bg-gray-950 text-white min-h-screen">
       {/* Profile Card */}
-      <div className="bg-white rounded-xl shadow-md p-6 py-8 flex flex-col md:flex-row items-center md:items-start gap-6 w-full">
+      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-8 flex flex-col md:flex-row items-center md:items-start gap-8 w-full border border-white/20">
         {/* Avatar */}
-        <img
-          src={user.avatar}
-          alt="User Avatar"
-          className="w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-blue-500 shadow-lg object-cover"
-        />
+        <div className="relative">
+          <img
+            src={user.avatar}
+            alt="User Avatar"
+            className="w-40 h-40 md:w-50 md:h-50 rounded-full border-4 border-blue-500 shadow-lg object-cover transition-transform duration-300 hover:scale-105"
+          />
+        </div>
 
         {/* Info */}
-        <div className="flex-1 space-y-3 text-center md:text-left">
+        <div className="flex-1 space-y-4 text-center md:text-left">
+          {/* Header */}
           <div className="flex flex-col md:flex-row items-center md:items-start md:justify-between gap-3 md:gap-0 w-full">
-            <h2 className="text-2xl font-bold text-gray-800">
-              Welcome, {user.name}!
+            <h2 className="text-3xl font-bold text-white drop-shadow">
+              {user.name}
             </h2>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="flex items-center gap-1 px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 active:scale-95 transition"
             >
-              <Pencil size={16} /> Edit
+              <Pencil size={18} /> Edit Profile
             </button>
           </div>
 
@@ -48,42 +51,43 @@ const Profile = () => {
             onClose={() => setIsModalOpen(false)}
           />
 
-          <p className="text-gray-600">{user.bio}</p>
-          <p className="text-gray-500 text-sm">📧 Email: {user.email}</p>
+          {/* Bio */}
+          <p className="text-gray-300 leading-relaxed">{user.description}</p>
+          <p className="text-gray-400 text-sm">📧 {user.email}</p>
 
           {/* Social Links */}
-          <div className="flex justify-center md:justify-start gap-4 mt-4">
+          <div className="flex justify-center md:justify-start gap-6 mt-5">
             <a
               href={user.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-700 hover:text-black transition"
+              className="text-gray-300 hover:text-white transition transform hover:scale-110"
             >
-              <Github size={22} />
+              <Github size={26} />
             </a>
             <a
               href={user.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-700 hover:text-blue-900 transition"
+              className="text-blue-400 hover:text-blue-600 transition transform hover:scale-110"
             >
-              <Linkedin size={22} />
+              <Linkedin size={26} />
             </a>
             <a
               href={user.social.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sky-500 hover:text-sky-700 transition"
+              className="text-sky-400 hover:text-sky-600 transition transform hover:scale-110"
             >
-              <Twitter size={22} />
+              <Twitter size={26} />
             </a>
             <a
-              href={user.social.Instagram}
+              href={user.social.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-pink-500 hover:text-pink-700 transition"
+              className="text-pink-400 hover:text-pink-600 transition transform hover:scale-110"
             >
-              <Instagram size={22} />
+              <Instagram size={26} />
             </a>
           </div>
         </div>
