@@ -7,14 +7,13 @@ import {
   PencilLine,
   Search,
   ChevronDown,
+  LogOut,
 } from "lucide-react";
 import LogoutPopup from "./LogoutPopup";
 
 function MobileNavbar({ toggleMenu, user, isOpen }) {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-
 
   return (
     <div
@@ -106,17 +105,19 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
                   <PencilLine size={18} className="text-pink-400" />
                   <span className="font-medium">Write Blog</span>
                 </Link>
+                <div className="border-t border-gray-700 my-2"></div>
+
+                <button
+                  onClick={() => setShowLogoutPopup(true)}
+                  className="flex items-center gap-3 w-full px-5 py-2 text-red-400 hover:bg-red-500 hover:text-white 
+  rounded-lg transition-all duration-200"
+                >
+                  <LogOut size={20} />
+                  <span>Logout</span>
+                </button>
               </div>
             )}
           </div>
-
-          {/* Logout */}
-          <button
-            className="w-full bg-red-600 px-4 py-2 mt-3 text-[17px] rounded-md hover:bg-red-700 transition cursor-pointer"
-            onClick={() => setShowLogoutPopup(true)}
-          >
-            Logout
-          </button>
         </>
       ) : (
         <>
@@ -135,7 +136,9 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
 
       {/* Logout Confirmation Popup */}
       {showLogoutPopup && (
-        <div><LogoutPopup setShowLogoutPopup={setShowLogoutPopup}/></div>
+        <div>
+          <LogoutPopup setShowLogoutPopup={setShowLogoutPopup} />
+        </div>
       )}
 
       {/* Search */}
