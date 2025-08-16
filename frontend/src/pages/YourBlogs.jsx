@@ -14,11 +14,10 @@ const YourBlogs = () => {
     },
     {
       id: 2,
-      title: "A Weekend in Skardu",
+      title: "A Relaxing Weekend in Skardu Valley",
       description:
         "Discover the beauty of Skardu’s landscapes, from crystal-clear lakes to rugged mountain trails.",
-      image:
-        "https://i.dawn.com/large/2015/12/567d1ca45aabe.jpg",
+      image: "https://i.dawn.com/large/2015/12/567d1ca45aabe.jpg",
       date: "August 7, 2025",
     },
     {
@@ -33,35 +32,49 @@ const YourBlogs = () => {
   ];
 
   return (
-    <div className="p-6 pt-20 md:ml-[300px] bg-gray-900 min-h-screen text-white">
-      <h1 className="text-3xl font-bold mb-6">Your Travel Blogs</h1>
+    <div className="p-6 pt-20 md:ml-[300px] bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen text-white">
+      <h1 className="text-4xl font-extrabold mb-10 text-center md:text-left">
+        🌍 Your Travel Blogs
+      </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {blogs.map((blog) => (
           <div
             key={blog.id}
-            className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition flex flex-col"
+            className="bg-white/10 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-[1.03] transition-all duration-500 border border-white/10"
           >
-            <img
-              src={blog.image}
-              alt={blog.title}
-              className="w-full h-48 object-cover"
-              loading="lazy"
-            />
-            <div className="p-4 flex-1 flex flex-col">
-              <h2 className="text-xl font-bold text-gray-800 mb-2">
-                {blog.title}
-              </h2>
-              <p className="text-gray-600 flex-1">{blog.description}</p>
-              <p className="text-gray-400 text-sm mt-2">📅 {blog.date}</p>
+            {/* Blog Image */}
+            <div className="relative w-full h-56 overflow-hidden group">
+              <img
+                src={blog.image}
+                alt={blog.title}
+                className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-in-out"
+                loading="lazy"
+              />
+              <span className="absolute bottom-3 left-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xs px-4 py-1 rounded-full shadow-md">
+                {blog.date}
+              </span>
+            </div>
 
-              <div className="flex justify-end gap-3 mt-4">
-                <button className="flex items-center gap-1 px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
-                  <Pencil size={16} /> Edit
-                </button>
-                <button className="flex items-center gap-1 px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
-                  <Trash2 size={16} /> Delete
-                </button>
+            {/* Blog Content */}
+            <div className="p-3 flex-1 flex flex-col">
+              <h3 className="text-2xl font-bold text-white mb-3">
+                {blog.title}
+              </h3>
+              <p className="text-gray-300 text-sm flex-1 leading-relaxed">
+                {blog.description}
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex items-center mt-6">
+                <div className="flex gap-3 justify-between w-full">
+                  <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg shadow hover:from-blue-600 hover:to-blue-800 transition">
+                    <Pencil size={16} /> Edit
+                  </button>
+                  <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-lg shadow hover:from-red-600 hover:to-red-800 transition">
+                    <Trash2 size={16} /> Delete
+                  </button>
+                </div>
               </div>
             </div>
           </div>
