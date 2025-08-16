@@ -3,9 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { Menu, Search, X } from "lucide-react";
 import MobileNavbar from "./MobileNavbar";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../redux/authSlice";
-import axios from "axios";
 import DesktopNavbar from "./DesktopNavbar";
+import LogoutPopup from "./LogoutPopup";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,7 +60,7 @@ function Navbar() {
         </div>
 
         {/* Links - Desktop */}
-       <DesktopNavbar user={user}/>
+       <DesktopNavbar user={user} setShowLogoutPopup={setShowLogoutPopup}/>
 
         {/* Burger - Mobile */}
         <div className="md:hidden">
@@ -72,29 +71,7 @@ function Navbar() {
       </div>
 
       {/* Logout Popup */}
-      {showLogoutPopup && (
-        <div className="fixed top-40 right-0 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg shadow-lg w-80 p-6 text-center animate-[fadeSlideIn_0.3s_ease-out_forwards]">
-            <h2 className="text-lg font-semibold text-gray-800 mb-4">
-              Are you sure you want to logout?
-            </h2>
-            <div className="flex justify-center gap-3">
-              <button
-                onClick={handleLogout}
-                className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
-              >
-                Yes, Logout
-              </button>
-              <button
-                onClick={() => setShowLogoutPopup(false)}
-                className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400 transition"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {showLogoutPopup &&  <LogoutPopup setShowLogoutPopup={setShowLogoutPopup}/>}
 
       {/* Mobile Menu */}
       <MobileNavbar toggleMenu={toggleMenu} user={user} isOpen={isOpen} />

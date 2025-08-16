@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { logout } from "../../redux/authSlice";
-import axios from "axios";
 import {
   User,
   FileText,
@@ -11,26 +8,13 @@ import {
   Search,
   ChevronDown,
 } from "lucide-react";
+import LogoutPopup from "./LogoutPopup";
 
 function MobileNavbar({ toggleMenu, user, isOpen }) {
-  const dispatch = useDispatch();
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const handleLogout = async () => {
-    try {
-      await axios.get("http://localhost:8000/api/v1/user/logout", {
-        withCredentials: true,
-      });
-      dispatch(logout());
-      toggleMenu();
-    } catch (error) {
-      console.error("Logout error:", error);
-      dispatch(logout());
-      toggleMenu();
-    }
-    setShowLogoutPopup(false);
-  };
+
 
   return (
     <div
@@ -151,27 +135,7 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
 
       {/* Logout Confirmation Popup */}
       {showLogoutPopup && (
-        <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg shadow-lg w-80 p-6 text-center">
-            <h2 className="text-lg font-semibold text-gray-800 mb-4">
-              Are you sure you want to logout?
-            </h2>
-            <div className="flex justify-center gap-3">
-              <button
-                onClick={handleLogout}
-                className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
-              >
-                Yes, Logout
-              </button>
-              <button
-                onClick={() => setShowLogoutPopup(false)}
-                className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400 transition"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
+        <div><LogoutPopup setShowLogoutPopup={setShowLogoutPopup}/></div>
       )}
 
       {/* Search */}
