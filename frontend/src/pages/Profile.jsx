@@ -10,7 +10,6 @@ const Profile = () => {
     email: "wajahatkamal3.0@gmail.com",
     bio: "MERN Stack Developer | Passionate about coding and creating amazing UIs.",
     avatar: "https://i.pravatar.cc/150?img=12",
-    joined: "July 2025",
     social: {
       github: "https://github.com/wajahat-kamal",
       linkedin: "https://linkedin.com/",
@@ -51,7 +50,6 @@ const Profile = () => {
 
           <p className="text-gray-600">{user.bio}</p>
           <p className="text-gray-500 text-sm">📧 Email: {user.email}</p>
-          <p className="text-gray-500 text-sm">📅 Joined: {user.joined}</p>
 
           {/* Social Links */}
           <div className="flex justify-center md:justify-start gap-4 mt-4">
