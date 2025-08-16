@@ -11,7 +11,7 @@ function Sidebar() {
   const navItems = [
     { to: "/dashboard/profile", label: "Profile", icon: <SquareUser /> },
     {
-      to: "/dashboard/your-blog",
+      to: "/dashboard/your-blogs",
       label: "Your Blogs",
       icon: <ChartColumnBig />,
     },
