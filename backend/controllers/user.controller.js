@@ -1,6 +1,7 @@
 import { User } from "../models/user.model.js";
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
+import getDataUri from "../utils/datauri.js";
 
 export const signup = async (req, res) => {
     try {
@@ -124,6 +125,9 @@ export const updateProfile = async (req, res) => {
     try {
         const userId = req.id;
         const {firstName, lastName, email, description, instagram, github, linkedin, twitter} = req.body;
+        const file = req.file;
+
+        const fileUri = getDataUri(file)
         
     } catch (error) {
         
