@@ -122,6 +122,8 @@ export const logout = async (_, res) => {
 
 export const updateProfile = async (req, res) => {
     try {
+        const userId = req.id;
+        const {firstName, lastName, email, description, instagram, github, linkedin, twitter} = req.body;
         
     } catch (error) {
         

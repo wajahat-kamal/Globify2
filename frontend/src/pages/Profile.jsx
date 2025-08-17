@@ -6,16 +6,16 @@ const Profile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const user = {
-    name: "Wajahat Kamal",
+    firstName: "Wajahat",
+    lastName: "Kamal",
     email: "wajahatkamal3.0@gmail.com",
-    description: "MERN Stack Developer | Passionate about coding and creating amazing UIs.",
+    description:
+      "MERN Stack Developer | Passionate about coding and creating amazing UIs.",
     avatar: "https://i.pravatar.cc/150?img=12",
-    social: {
-      github: "https://github.com/wajahat-kamal",
-      linkedin: "https://linkedin.com/",
-      twitter: "https://twitter.com/",
-      instagram: "https://instagram.com/",
-    },
+    github: "https://github.com/wajahat-kamal",
+    linkedin: "https://linkedin.com/",
+    twitter: "https://twitter.com/",
+    instagram: "https://instagram.com/",
   };
 
   return (
@@ -36,7 +36,7 @@ const Profile = () => {
           {/* Header */}
           <div className="flex flex-col md:flex-row items-center md:items-start md:justify-between gap-3 md:gap-0 w-full">
             <h2 className="text-3xl font-bold text-white drop-shadow">
-              {user.name}
+              {user.firstName} {user.lastName}
             </h2>
             <button
               onClick={() => setIsModalOpen(true)}
@@ -58,7 +58,7 @@ const Profile = () => {
           {/* Social Links */}
           <div className="flex justify-center md:justify-start gap-6 mt-5">
             <a
-              href={user.social.github}
+              href={user.github}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-white transition transform hover:scale-110"
@@ -66,7 +66,7 @@ const Profile = () => {
               <Github size={26} />
             </a>
             <a
-              href={user.social.linkedin}
+              href={user.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-400 hover:text-blue-600 transition transform hover:scale-110"
@@ -74,7 +74,7 @@ const Profile = () => {
               <Linkedin size={26} />
             </a>
             <a
-              href={user.social.twitter}
+              href={user.twitter}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sky-400 hover:text-sky-600 transition transform hover:scale-110"
@@ -82,7 +82,7 @@ const Profile = () => {
               <Twitter size={26} />
             </a>
             <a
-              href={user.social.instagram}
+              href={user.instagram}
               target="_blank"
               rel="noopener noreferrer"
               className="text-pink-400 hover:text-pink-600 transition transform hover:scale-110"
