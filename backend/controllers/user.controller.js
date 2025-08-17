@@ -2,6 +2,7 @@ import { User } from "../models/user.model.js";
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 import getDataUri from "../utils/datauri.js";
+import { response } from "express";
 
 export const signup = async (req, res) => {
     try {
@@ -123,13 +124,52 @@ export const logout = async (_, res) => {
 
 export const updateProfile = async (req, res) => {
     try {
-        const userId = req.id;
-        const {firstName, lastName, email, description, instagram, github, linkedin, twitter} = req.body;
-        const file = req.file;
-
-        const fileUri = getDataUri(file)
-        
+      const userId = req.id;
+      const { firstName, lastName, email, description, instagram, github, linkedin, twitter } = req.body;
+      const file = req.file;
+  
+      let cloudResponse; // 👈 scope ke bahar declare
+      if (file) {
+        const fileUri = getDataUri(file);
+        cloudResponse = await cloudinary.uploader.upload(fileUri.content);
+      }
+  
+      const user = await User.findById(userId).select("-password");
+      if (!user) {
+        return res.status(404).json({
+          message: "User not found",
+          success: false
+        });
+      }
+  
+      // updating data
+      if (firstName) user.firstName = firstName;
+      if (lastName) user.lastName = lastName;
+      if (email) user.email = email;
+      if (description) user.description = description;
+  
+      // profile image file
+      if (cloudResponse) user.photoUrl = cloudResponse.secure_url; // 👈 correct property
+  
+      // social links
+      if (instagram) user.instagram = instagram;
+      if (github) user.github = github;
+      if (linkedin) user.linkedin = linkedin;
+      if (twitter) user.twitter = twitter;
+  
+      await user.save();
+      return res.status(200).json({
+        message: "Profile updated successfully.",
+        success: true,
+        user
+      });
+  
     } catch (error) {
-        
+      console.error(error);
+      return res.status(500).json({
+        success: false,
+        message: "Failed to update profile"
+      });
     }
-}
+  };
+  
