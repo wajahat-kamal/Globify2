@@ -8,7 +8,7 @@ function Blogs() {
       <Helmet>
         <title>Blogs | WK Globify</title>
       </Helmet>
-      <div className="mt-10 bg-gradient-to-r from-[#d8e3f0] to-[#f0f4fa] text-gray-800">
+      <div className="mt-10 text-gray-800">
         <BlogPage />
       </div>
     </>

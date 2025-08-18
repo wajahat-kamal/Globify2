@@ -4,7 +4,7 @@ import "../index.css"; // Import custom CSS animations
 
 function Hero() {
   return (
-    <div className="px-4 md:px-6 lg:px-8 bg-gradient-to-r from-[#d8e3f0] to-[#f0f4fa] text-gray-800 overflow-hidden">
+    <div className="px-4 md:px-6 lg:px-8 text-gray-800 overflow-hidden">
       <div className="max-w-7xl mx-auto md:mx-20 min-h-[600px] flex flex-col-reverse md:flex-row items-center justify-between text-center md:text-left py-14">
         {/* Text Section */}
         <div className="w-full md:w-1/2 space-y-5 mt-8 md:mt-0 animate-slideLeft">

@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex flex-col items-center px-6 py-16 mt-5">
+    <div className="min-h-screen flex flex-col items-center px-6 py-16 mt-5">
       {/* Header */}
       <h1 className="text-4xl font-bold text-gray-800 mb-4 text-center">
         About Us
