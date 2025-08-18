@@ -8,46 +8,45 @@ function About() {
         <title>About | Globify</title>
       </Helmet>
 
-      <div className="min-h-screen flex flex-col items-center justify-center px-6 py-8 pt-20">
-        {/* Header */}
-        <h1 className="text-5xl font-extrabold text-gray-900 mb-5 text-center transition duration-700 ease-in-out hover:scale-105">
-          About <span className="text-indigo-600">Globify</span>
-        </h1>
+      {/* Full background image section */}
+      <div
+        className="relative min-h-screen flex items-center justify-center px-6 pt-20 bg-fixed bg-center bg-cover"
+        style={{ backgroundImage: "url('aboutpage.png')" }}
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
 
         {/* Content Card */}
-        <div className="max-w-4xl shadow-lg rounded-2xl p-6 space-y-4 transform transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]">
-          <p className="text-gray-700 leading-relaxed text-lg transition duration-500 hover:text-gray-900">
+        <div className="relative max-w-4xl text-gray-100 backdrop-blur-lg bg-white/5 border border-white/10 shadow-xl rounded-3xl p-8 md:p-12 space-y-6 text-center animate-fadeIn">
+          <h1 className="text-4xl font-extrabold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent tracking-wide">
+            About Globify
+          </h1>
+
+          <p className="leading-relaxed text-lg text-gray-300">
             Welcome to{" "}
-            <span className="font-semibold text-indigo-600">Globify</span> –
-            your space to explore, learn, and share ideas with the world. At
-            Globify, we believe that knowledge has no borders, and stories
+            <span className="font-semibold text-indigo-400">Globify</span> – 
+            your space to explore, learn, and share ideas with the world. At 
+            Globify, we believe that knowledge has no borders, and stories 
             connect us across cultures, industries, and experiences.
           </p>
 
-          <p className="text-gray-700 leading-relaxed text-lg transition duration-500 hover:text-gray-900">
-            Our mission is to create a platform where curious minds can discover
-            valuable insights, fresh perspectives, and inspiring content from
-            around the globe. Whether it’s technology, lifestyle, travel, or
-            personal growth – Globify is here to amplify voices and spark
+          <p className="leading-relaxed text-lg text-gray-300">
+            Our mission is to create a platform where curious minds can discover 
+            valuable insights, fresh perspectives, and inspiring content from 
+            around the globe. Whether it’s technology, lifestyle, travel, or 
+            personal growth – Globify is here to amplify voices and spark 
             meaningful conversations.
           </p>
 
-          <p className="text-gray-700 leading-relaxed text-lg transition duration-500 hover:text-gray-900">
-            We are more than just a blog – we’re a growing community of writers,
-            creators, and readers who believe in the power of sharing ideas.
-            Every post you read here is written with the aim of informing,
-            inspiring, and empowering our audience.
-          </p>
-
-          <p className="text-gray-700 leading-relaxed text-lg transition duration-500 hover:text-gray-900">
-            Thank you for being part of this journey. Together, let’s keep
+          <p className="leading-relaxed text-lg text-gray-300">
+            Thank you for being part of this journey. Together, let’s keep 
             learning, connecting, and growing – one story at a time.
           </p>
-        </div>
 
-        {/* Footer note */}
-        <div className="mt-7 text-center text-gray-600 text-sm transition duration-700 hover:text-indigo-600">
-          <p>🌍 Globify – Connecting Ideas, Inspiring Minds</p>
+          {/* Footer note */}
+          <div className="pt-4 text-sm text-gray-400 transition duration-500 hover:text-indigo-400">
+            🌍 Globify – Connecting Ideas, Inspiring Minds
+          </div>
         </div>
       </div>
     </>
