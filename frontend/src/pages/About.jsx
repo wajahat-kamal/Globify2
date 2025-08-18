@@ -10,12 +10,12 @@ function About() {
 
       <div className="min-h-screen flex flex-col items-center justify-center px-6 py-8 pt-20">
         {/* Header */}
-        <h1 className="text-5xl font-extrabold text-gray-900 mb-8 text-center transition duration-700 ease-in-out hover:scale-105">
+        <h1 className="text-5xl font-extrabold text-gray-900 mb-5 text-center transition duration-700 ease-in-out hover:scale-105">
           About <span className="text-indigo-600">Globify</span>
         </h1>
 
         {/* Content Card */}
-        <div className="max-w-4xl shadow-lg rounded-2xl p-10 space-y-5 transform transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]">
+        <div className="max-w-4xl shadow-lg rounded-2xl p-6 space-y-4 transform transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]">
           <p className="text-gray-700 leading-relaxed text-lg transition duration-500 hover:text-gray-900">
             Welcome to{" "}
             <span className="font-semibold text-indigo-600">Globify</span> –
