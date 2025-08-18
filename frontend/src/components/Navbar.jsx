@@ -42,7 +42,7 @@ function Navbar() {
               alt="logo"
               className="w-10 h-10 rounded-full"
             />
-            <span className="text-2xl font-bold">GLOBIFY</span>
+            <span className="text-2xl font-bold text-indigo-600">GLOBIFY</span>
           </Link>
 
           {/* Search - Desktop */}
