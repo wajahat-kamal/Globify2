@@ -6,7 +6,7 @@ function Blogs() {
   return (
     <>
       <Helmet>
-        <title>Blogs | WK Globify</title>
+        <title>Blogs | Globify</title>
       </Helmet>
       <div className="mt-10 text-gray-800">
         <BlogPage />

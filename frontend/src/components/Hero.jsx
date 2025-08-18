@@ -12,7 +12,7 @@ function Hero() {
             Explore the World <br />
             with{" "}
             <span className="text-[#ff7b54] relative inline-block after:absolute after:w-full after:h-1 after:bg-[#ff7b54] after:bottom-0 after:left-0 after:rounded-full">
-              WK Globify
+              GLOBIFY
             </span>
           </h1>
 

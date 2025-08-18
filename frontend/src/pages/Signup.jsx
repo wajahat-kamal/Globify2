@@ -71,7 +71,7 @@ function Signup() {
   return (
     <>
       <Helmet>
-        <title>Sign Up | WK Globify</title>
+        <title>Sign Up | Globify</title>
       </Helmet>
 
       <div

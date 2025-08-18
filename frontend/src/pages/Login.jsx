@@ -63,7 +63,7 @@ function Login() {
   return (
     <>
       <Helmet>
-        <title>Login | WK Globify</title>
+        <title>Login | Globify</title>
       </Helmet>
 
       <div

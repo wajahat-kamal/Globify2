@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>WK Globify</title>
+        <title>Globify</title>
       </Helmet>
       <div className="mt-15">
         <Hero />
