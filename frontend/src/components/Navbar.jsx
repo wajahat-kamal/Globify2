@@ -41,7 +41,7 @@ function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-1.5">
             <img
-              src="/main-logo.jpg"
+              src="/main-logo.png"
               alt="logo"
               className="w-10 h-10 rounded-full border-2 border-amber-400"
             />
