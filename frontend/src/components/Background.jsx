@@ -5,7 +5,7 @@ function Background({ children }) {
     <div
       className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat bg-fixed"
       style={{
-        backgroundImage: "url('main-hero-bg.jpg')",
+        backgroundImage: "url('main-bg.jpg')",
       }}
     >
       {/* Overlay for readability */}

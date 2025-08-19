@@ -68,9 +68,13 @@ function Login() {
 
       <div
         className="min-h-screen bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: "url('/auth.jpg')" }}
+        style={{ backgroundImage: "url('/main-bg.jpg')" }}
       >
-        <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg m-4 relative">
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/70"></div>
+
+        <div className="relative w-full max-w-md bg-gray-900/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl m-4 border border-gray-700">
+          {/* Toast */}
           {toast.show && (
             <Toast
               message={toast.message}
@@ -79,15 +83,16 @@ function Login() {
             />
           )}
 
-          <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+          <h2 className="text-3xl font-bold mb-6 text-center text-amber-400">
             Welcome Back | Login
           </h2>
 
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-5" onSubmit={handleSubmit}>
+            {/* Email */}
             <div>
               <label
                 htmlFor="email"
-                className="block mb-1 text-sm font-medium text-gray-700"
+                className="block mb-1 text-sm font-medium text-gray-300"
               >
                 Email
               </label>
@@ -96,22 +101,23 @@ function Login() {
                 name="email"
                 type="email"
                 placeholder="you@example.com"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
+                className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400 text-white placeholder-gray-400"
                 required
                 value={input.email}
                 onChange={handleChange}
               />
             </div>
 
+            {/* Password */}
             <div className="relative w-full">
-              <label className="block text-gray-700 font-medium mb-1">
+              <label className="block text-gray-300 font-medium mb-1">
                 Password
               </label>
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="••••••••"
                 name="password"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
+                className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400 text-white placeholder-gray-400"
                 required
                 value={input.password}
                 onChange={handleChange}
@@ -119,25 +125,34 @@ function Login() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-[38px] text-gray-500 hover:text-gray-700"
+                className="absolute right-3 top-[38px] text-gray-400 hover:text-amber-400 transition"
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
 
-            <p className="text-sm text-gray-600">
+            {/* Sign Up Link */}
+            <p className="text-sm text-gray-400">
               Don’t have an account?{" "}
-              <Link to="/signup" className="text-blue-500 hover:underline">
+              <Link to="/signup" className="text-amber-400 hover:underline">
                 Sign Up
               </Link>
             </p>
 
+            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-amber-500 text-gray-900 py-2 px-4 rounded-lg hover:bg-amber-400 transition duration-300 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? <><Loader2 className=" w-4 h-4 animate-spin"/>Please wait...</> : "Login"}
+              {loading ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin inline-block mr-2" />
+                  Please wait...
+                </>
+              ) : (
+                "Login"
+              )}
             </button>
           </form>
         </div>
