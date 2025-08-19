@@ -32,49 +32,54 @@ function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 z-50 w-full bg-gradient-to-r from-gray-900 via-blue-950 to-amber-600
- animate-slideDown shadow-lg">
+    <nav
+      className="fixed top-0 z-50 w-full bg-gradient-to-r from-gray-900 via-blue-950 to-amber-600
+ animate-slideDown shadow-lg"
+    >
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <div className="flex items-center gap-10 flex-row">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-1.5">
             <img
-              src="/main-logo.png"
+              src="/main-logo.jpg"
               alt="logo"
               className="w-10 h-10 rounded-full border-2 border-amber-400"
             />
             <span className="text-2xl font-bold text-amber-400">GLOBIFY</span>
           </Link>
 
-{/* Search - Desktop */}
-<div className="hidden md:flex items-center w-80 bg-gradient-to-r from-blue-900 to-blue-950 rounded-full overflow-hidden border border-blue-500 shadow-md">
-  <input
-    type="text"
-    name="search"
-    placeholder="Search Blogs..."
-    className="bg-transparent px-4 py-2 text-sm focus:outline-none w-full text-white placeholder-blue-300"
-  />
-  <button className="p-2 px-3 bg-blue-800 hover:bg-blue-700 transition-colors text-blue-200 hover:text-white rounded-r-full">
-    <Search className="w-5 h-5" />
-  </button>
-</div>
-
-
+          {/* Search - Desktop */}
+          <div className="hidden md:flex items-center w-80 bg-gradient-to-r from-blue-900 to-blue-950 rounded-full overflow-hidden border border-blue-500 shadow-md">
+            <input
+              type="text"
+              name="search"
+              placeholder="Search Blogs..."
+              className="bg-transparent px-4 py-2 text-sm focus:outline-none w-full text-white placeholder-blue-300"
+            />
+            <button className="p-2 px-3 bg-blue-800 hover:bg-blue-700 transition-colors text-blue-200 hover:text-white rounded-r-full">
+              <Search className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         {/* Links - Desktop */}
-       <DesktopNavbar user={user} setShowLogoutPopup={setShowLogoutPopup}/>
+        <DesktopNavbar user={user} setShowLogoutPopup={setShowLogoutPopup} />
 
         {/* Burger - Mobile */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-white hover:text-amber-400 transition">
+          <button
+            onClick={toggleMenu}
+            className="text-white hover:text-amber-400 transition"
+          >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
       {/* Logout Popup */}
-      {showLogoutPopup &&  <LogoutPopup setShowLogoutPopup={setShowLogoutPopup}/>}
+      {showLogoutPopup && (
+        <LogoutPopup setShowLogoutPopup={setShowLogoutPopup} />
+      )}
 
       {/* Mobile Menu */}
       <MobileNavbar toggleMenu={toggleMenu} user={user} isOpen={isOpen} />
