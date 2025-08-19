@@ -6,59 +6,8 @@
     <link rel="stylesheet" href="/src/index.css">
     <link rel="shortcut icon" href="/main-logo.png" type="image/x-icon">
     <title>Globify</title>
-    <style>
-  /* --------- Theme vars (edit these) --------- */
-:root{
-  --scrollbar-width: 8px;                       /* thumb width */
-  --scroll-track: rgba(189,189,255,0.10);       /* track (background) */
-  --scroll-thumb: rgba(139,139,255,0.96);       /* main thumb color */
-  --scroll-thumb-hover: rgba(115,115,255,1);    /* hover */
-  --scroll-thumb-active: rgba(95,95,215,1);     /* active/drag */
-}
-
-/* Prevent layout jump when scrollbar appears */
-html, body { scrollbar-gutter: stable; }
-
-/* ===== Global: Works site-wide ===== */
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--scroll-thumb) var(--scroll-track); /* thumb then track */
-}
-
-/* WebKit (Chrome, Edge, Safari) */
-::-webkit-scrollbar {
-  width: var(--scrollbar-width);
-  height: var(--scrollbar-width);
-}
-::-webkit-scrollbar-track {
-  background: var(--scroll-track);
-  border-radius: 999px;
-  /* subtle inner shadow to give depth */
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
-}
-::-webkit-scrollbar-thumb {
-  /* subtle gradient + rounded */
-  background: linear-gradient(180deg, var(--scroll-thumb), var(--scroll-thumb-hover));
-  border-radius: 999px;
-  border: 2px solid transparent;      /* creates spacing between thumb and track */
-  background-clip: padding-box;
-  box-shadow: inset 0 -6px 14px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.02);
-  transition: transform .12s ease, background .12s ease;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--scroll-thumb-hover), var(--scroll-thumb-active));
-  transform: translateX(0); /* tiny motion if desired */
-}
-::-webkit-scrollbar-thumb:active {
-  transform: scale(0.98);
-}
-/* corner where horizontal + vertical meet */
-::-webkit-scrollbar-corner { background: transparent; }
-
-    </style>
   </head>
-  <body class="bg-gradient-to-r from-[#a7b9cc] to-[#c5d0de]">
+  <body class="bg-gradient-to-br from-blue-900 via-blue-800 to-teal-700">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

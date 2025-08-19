@@ -17,28 +17,28 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
 
   return (
     <div
-      className={`md:hidden bg-gray-800 px-4 text-[17px] pb-6 space-y-3 transform transition-transform duration-300 ease-in-out ${
+      className={`md:hidden bg-blue-900 px-4 text-[17px] pb-6 space-y-3 transform transition-transform duration-300 ease-in-out ${
         isOpen ? "translate-x-0" : "translate-x-full"
-      } fixed top-16 right-0 w-3/4 h-screen overflow-y-auto z-40`}
+      } fixed top-16 right-0 w-3/4 h-screen overflow-y-auto z-40 border-l border-blue-700`}
     >
       {/* Static Links */}
       <Link
         to="/"
-        className="block hover:text-gray-300 text-center hover:underline m-3 text-[19px]"
+        className="block hover:text-amber-400 text-white text-center hover:underline m-3 text-[19px]"
         onClick={toggleMenu}
       >
         Home
       </Link>
       <Link
         to="/about"
-        className="block hover:text-gray-300 text-center hover:underline text-[19px]"
+        className="block hover:text-amber-400 text-white text-center hover:underline text-[19px]"
         onClick={toggleMenu}
       >
         About
       </Link>
       <Link
         to="/blogs"
-        className="block hover:text-gray-300 text-center hover:underline m-3 text-[19px]"
+        className="block hover:text-amber-400 text-white text-center hover:underline m-3 text-[19px]"
         onClick={toggleMenu}
       >
         Blogs
@@ -50,70 +50,71 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
           <div className="relative">
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="w-full bg-gray-700 px-3 py-2 text-[17px] rounded-md hover:bg-gray-600 transition flex justify-center items-center gap-2"
+              className="w-full bg-blue-800 px-3 py-2 text-[17px] rounded-md hover:bg-blue-700 transition flex justify-center items-center gap-2 border border-blue-600"
             >
               <img
                 src="/user-avatar.png"
                 className="w-7 h-7 rounded-full bg-white"
                 alt="User Avatar"
               />
-              <span className="truncate">
+              <span className="truncate text-white">
                 {user?.firstName} {user?.lastName}
               </span>
               <ChevronDown
                 size={18}
-                className={`transition-transform duration-200 ${
+                className={`transition-transform duration-200 text-blue-200 ${
                   isDropdownOpen ? "rotate-180" : ""
                 }`}
               />
             </button>
 
             {isDropdownOpen && (
-              <div className="mt-3 w-full bg-gray-900 text-gray-200 rounded-xl shadow-lg py-2 animate-fadeIn">
+              <div className="mt-3 w-full bg-blue-800 text-white rounded-xl shadow-lg py-2 animate-fadeIn border border-blue-600">
                 <Link
                   to="/dashboard/profile"
-                  className="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg transition"
+                  className="flex items-center gap-3 px-4 py-2 hover:bg-blue-700 rounded-lg transition"
                   onClick={toggleMenu}
                 >
-                  <User size={18} className="text-indigo-400" />
+                  <User size={18} className="text-amber-400" />
                   <span className="font-medium">Profile</span>
                 </Link>
 
                 <Link
                   to="/dashboard/your-blogs"
-                  className="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg transition"
+                  className="flex items-center gap-3 px-4 py-2 hover:bg-blue-700 rounded-lg transition"
                   onClick={toggleMenu}
                 >
-                  <FileText size={18} className="text-green-400" />
+                  <FileText size={18} className="text-emerald-400" />
                   <span className="font-medium">Your Blogs</span>
                 </Link>
 
                 <Link
                   to="/dashboard/comments"
-                  className="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg transition"
+                  className="flex items-center gap-3 px-4 py-2 hover:bg-blue-700 rounded-lg transition"
                   onClick={toggleMenu}
                 >
-                  <MessageSquare size={18} className="text-yellow-400" />
+                  <MessageSquare size={18} className="text-amber-400" />
                   <span className="font-medium">Comments</span>
                 </Link>
 
                 <Link
                   to="/dashboard/write-blog"
-                  className="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg transition"
+                  className="flex items-center gap-3 px-4 py-2 hover:bg-blue-700 rounded-lg transition"
                   onClick={toggleMenu}
                 >
-                  <PencilLine size={18} className="text-pink-400" />
+                  <PencilLine size={18} className="text-cyan-400" />
                   <span className="font-medium">Write Blog</span>
                 </Link>
-                <div className="border-t border-gray-700 my-2"></div>
+
+                <div className="border-t border-blue-600 my-2"></div>
 
                 <button
                   onClick={() => setShowLogoutPopup(true)}
-                  className="flex items-center gap-3 w-full px-5 py-2 text-red-400 hover:bg-red-500 hover:text-white 
-  rounded-lg transition-all duration-200"
+                  className="flex items-center gap-3 w-full px-4 py-2 text-red-300 hover:bg-red-600 hover:text-white 
+                  rounded-lg transition"
                 >
-                  <LogOut size={20} />
-                  <span>Logout</span>
+                  <LogOut size={18} />
+                  <span className="font-medium">Logout</span>
                 </button>
               </div>
             )}
@@ -121,8 +122,8 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
         </>
       ) : (
         <>
-          <Link to="/signup" onClick={toggleMenu}>
-            <button className="w-full bg-gray-700 px-4 py-2 rounded-md hover:bg-gray-600 transition">
+          <Link to="/signup">
+            <button className="w-full bg-amber-500 px-5 py-2 text-[16px] rounded-lg text-blue-900 font-medium shadow-lg hover:bg-amber-400 transition border border-amber-400">
               Signup
             </button>
           </Link>
