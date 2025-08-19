@@ -45,7 +45,7 @@ function Hero() {
           <img
             src="/main-heroSection.png"
             alt="Hero section illustration"
-            className="w-full h-auto object-cover rounded-xl group-hover:scale-105 transition-transform duration-500 shadow-2xl"
+            className="w-full h-auto object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
           />
           {/* Decorative Glow Effect */}
           <div className="absolute -z-10 top-6 left-6 w-full h-full rounded-xl bg-amber-400 opacity-20 blur-2xl"></div>

@@ -32,7 +32,8 @@ function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 z-50 w-full bg-gradient-to-r from-blue-900 to-blue-800 text-white border-b-2 border-blue-600 animate-slideDown shadow-lg">
+    <nav className="fixed top-0 z-50 w-full bg-gradient-to-r from-blue-900 via-indigo-800 to-amber-600
+ animate-slideDown shadow-lg">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <div className="flex items-center gap-10 flex-row">
           {/* Logo */}
