@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import Hero from "../components/Hero";
 import Blogs from "../components/Blogs";
+import Background from "../components/Background";
 
 function Home() {
   return (
@@ -9,10 +10,11 @@ function Home() {
       <Helmet>
         <title>Globify</title>
       </Helmet>
-      <div className="mt-15">
+
+      <Background>
         <Hero />
         <Blogs />
-      </div>
+      </Background>
     </>
   );
 }
