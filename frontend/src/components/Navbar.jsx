@@ -32,7 +32,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 z-50 w-full bg-gradient-to-r from-blue-900 via-indigo-800 to-amber-600
+    <nav className="fixed top-0 z-50 w-full bg-gradient-to-r from-gray-900 via-blue-950 to-amber-600
  animate-slideDown shadow-lg">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <div className="flex items-center gap-10 flex-row">
@@ -46,18 +46,20 @@ function Navbar() {
             <span className="text-2xl font-bold text-amber-400">GLOBIFY</span>
           </Link>
 
-          {/* Search - Desktop */}
-          <div className="hidden md:flex items-center bg-blue-700 rounded-md overflow-hidden border border-blue-500">
-            <input
-              type="text"
-              name="search"
-              placeholder="Search..."
-              className="bg-transparent px-4 py-2 text-sm focus:outline-none w-full text-white placeholder-blue-200"
-            />
-            <button className="p-2 px-3 hover:bg-blue-600 transition text-blue-200 hover:text-white">
-              <Search className="w-5 h-5" />
-            </button>
-          </div>
+{/* Search - Desktop */}
+<div className="hidden md:flex items-center w-80 bg-gradient-to-r from-blue-900 to-blue-950 rounded-full overflow-hidden border border-blue-500 shadow-md">
+  <input
+    type="text"
+    name="search"
+    placeholder="Search Blogs..."
+    className="bg-transparent px-4 py-2 text-sm focus:outline-none w-full text-white placeholder-blue-300"
+  />
+  <button className="p-2 px-3 bg-blue-800 hover:bg-blue-700 transition-colors text-blue-200 hover:text-white rounded-r-full">
+    <Search className="w-5 h-5" />
+  </button>
+</div>
+
+
         </div>
 
         {/* Links - Desktop */}

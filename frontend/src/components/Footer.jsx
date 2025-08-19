@@ -2,21 +2,21 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-r from-blue-900 to-blue-800 text-blue-100 py-6 px-6 md:px-12 border-t-2 border-blue-600">
+    <footer className="w-full bg-gradient-to-r from-gray-900 via-blue-950 to-gray-900 py-4 px-6 md:px-12 border-t-2 border-blue-600 text-gray-200">
       <div className="flex flex-col md:flex-row justify-between items-center gap-4">
         {/* Left Section */}
         <div className="text-center md:text-left space-y-1">
-          <p className="text-sm">
+          <p className="text-sm text-gray-200">
             &copy; {new Date().getFullYear()} All rights reserved by{" "}
             <span className="text-amber-400 font-semibold">Wajahat Kamal</span>.
           </p>
-          <p className="text-sm">
+          <p className="text-sm text-gray-200">
             Made with ❤️ using MERN Stack & TailwindCSS.
           </p>
         </div>
 
         {/* Middle Section */}
-        <div className="flex flex-col items-center justify-center gap-1 text-sm">
+        <div className="flex flex-col items-center justify-center gap-1 text-sm text-gray-200">
           {/* Links Row */}
           <div className="flex flex-wrap items-center justify-center gap-4">
             <p className="hover:text-amber-400 transition-colors cursor-pointer">
@@ -31,7 +31,7 @@ function Footer() {
           </div>
 
           {/* Creator Info */}
-          <p className="text-center">
+          <p className="text-center text-gray-200">
             Created by{" "}
             <a
               href="https://wajahatkamal-dev.vercel.app"
@@ -45,7 +45,7 @@ function Footer() {
         </div>
 
         {/* Right Section */}
-        <div className="text-sm text-center md:text-right space-y-1">
+        <div className="text-sm text-center md:text-right space-y-1 text-gray-200">
           <p>Follow me on social media</p>
           <div className="flex justify-center md:justify-end gap-4">
             <a href="#" className="hover:text-amber-400 transition-colors">
