@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Twitter, Instagram } from "lucide-react";
+import { Twitter, Instagram, Linkedin } from "lucide-react";
 
 function Footer() {
   return (
@@ -50,13 +50,13 @@ function Footer() {
           {/* Right Section */}
           <div className="text-center md:text-right space-y-1">
             <p className="text-sm">Follow me on social media</p>
-            <div className="flex justify-center md:justify-end gap-">
+            <div className="flex justify-center md:justify-end gap-4">
               <a
                 href="#"
                 className="hover:text-amber-400 transition-colors"
                 aria-label="Facebook"
               >
-                <Facebook className="w-5 h-5" />
+                <Linkedin className="w-5 h-5" />
               </a>
               <a
                 href="#"
