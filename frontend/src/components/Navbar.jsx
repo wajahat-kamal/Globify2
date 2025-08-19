@@ -5,6 +5,8 @@ import MobileNavbar from "./Navbar/MobileNavbar";
 import { useSelector, useDispatch } from "react-redux";
 import DesktopNavbar from "./Navbar/DesktopNavbar";
 import LogoutPopup from "./Navbar/LogoutPopup";
+import axios from "axios";
+import { logout } from "../redux/authSlice"; // apne slice ka import sahi karein
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,23 +35,29 @@ function Navbar() {
 
   return (
     <nav
-      className="fixed top-0 z-50 w-full bg-gradient-to-r from-gray-900 via-blue-950 to-amber-600
- animate-slideDown shadow-lg"
+      className="fixed top-0 z-50 w-full backdrop-blur-md bg-gradient-to-r from-gray-900/95 via-blue-950/90 to-amber-700/90 
+      border-b border-amber-400/30 shadow-lg"
     >
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+        {/* Left Section */}
         <div className="flex items-center gap-10 flex-row">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-1.5">
+          <Link to="/" className="flex items-center gap-2">
             <img
               src="/main-logo.png"
               alt="logo"
-              className="w-10 h-10 rounded-full border-2 border-amber-400"
+              className="w-10 h-10 rounded-full border-2 border-amber-400 shadow-md"
             />
-            <span className="text-2xl font-bold text-amber-400">GLOBIFY</span>
+            <span className="text-2xl font-extrabold tracking-wide text-amber-400 drop-shadow-lg">
+              GLOBIFY
+            </span>
           </Link>
 
           {/* Search - Desktop */}
-          <div className="hidden md:flex items-center w-80 bg-gradient-to-r from-blue-900 to-blue-950 rounded-full overflow-hidden border border-blue-500 shadow-md">
+          <div
+            className="hidden md:flex items-center w-80 bg-gradient-to-r from-blue-900/90 to-blue-950/90 
+          rounded-full overflow-hidden border border-blue-500/50 shadow-md"
+          >
             <input
               type="text"
               name="search"
@@ -69,7 +77,7 @@ function Navbar() {
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
-            className="text-white hover:text-amber-400 transition"
+            className="text-white hover:text-amber-400 transition-colors duration-300"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -78,7 +86,10 @@ function Navbar() {
 
       {/* Logout Popup */}
       {showLogoutPopup && (
-        <LogoutPopup setShowLogoutPopup={setShowLogoutPopup} />
+        <LogoutPopup
+          setShowLogoutPopup={setShowLogoutPopup}
+          handleLogout={handleLogout}
+        />
       )}
 
       {/* Mobile Menu */}
