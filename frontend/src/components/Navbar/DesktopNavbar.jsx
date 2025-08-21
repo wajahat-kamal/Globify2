@@ -7,6 +7,8 @@ import {
   PencilLine,
   LogOut,
 } from "lucide-react";
+import { useSelector } from "react-redux";
+
 
 function DesktopNavbar({ user, setShowLogoutPopup }) {
   const location = useLocation();
@@ -40,7 +42,7 @@ function DesktopNavbar({ user, setShowLogoutPopup }) {
               hover:from-gray-700 hover:to-blue-800  px-4 py-2 text-[16px] rounded-xl transition-all duration-300 flex justify-center items-center gap-2 shadow-md"
           >
             <img
-              src="/user-avatar.png"
+              src={user.photoUrl || "/user-avatar.png"}
               className="w-9 h-9 rounded-full border-2 border-yellow-400 shadow-sm"
               alt="User Avatar"
             />
