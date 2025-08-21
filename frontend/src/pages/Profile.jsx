@@ -1,46 +1,35 @@
 import React, { useState } from "react";
 import { Pencil, Github, Linkedin, Twitter, Instagram } from "lucide-react";
 import EditProfile from "../components/EditProfile";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const user = {
-    firstName: "Wajahat",
-    lastName: "Kamal",
-    email: "wajahatkamal3.0@gmail.com",
-    description:
-      "MERN Stack Developer | Passionate about coding and creating amazing UIs.",
-    avatar: "https://i.pravatar.cc/150?img=12",
-    github: "https://github.com/wajahat-kamal",
-    linkedin: "https://linkedin.com/",
-    twitter: "https://twitter.com/",
-    instagram: "https://instagram.com/",
-  };
+  const { user } = useSelector((store) => store.auth);
 
   return (
-    <div className="p-6 pt-24 md:ml-[300px] bg-gray-950 text-white min-h-screen">
+    <div className="p-6 pt-24 md:ml-[300px] bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white min-h-screen">
       {/* Profile Card */}
-      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-8 flex flex-col md:flex-row items-center md:items-start gap-8 w-full border border-white/20">
+      <div className="bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-10 flex flex-col md:flex-row items-center md:items-start gap-10 w-full border border-white/20 hover:border-blue-500/40 transition-all duration-300">
         {/* Avatar */}
-        <div className="relative">
+        <div className="relative group">
           <img
-            src={user.avatar}
+            src={user.photoUrl}
             alt="User Avatar"
-            className="w-40 h-40 md:w-50 md:h-50 rounded-full border-4 border-blue-500 shadow-lg object-cover transition-transform duration-300 hover:scale-105"
+            className="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-blue-500 shadow-lg object-cover transition-transform duration-500 group-hover:scale-110"
           />
         </div>
 
         {/* Info */}
-        <div className="flex-1 space-y-4 text-center md:text-left">
+        <div className="flex-1 space-y-3 text-center md:text-left">
           {/* Header */}
-          <div className="flex flex-col md:flex-row items-center md:items-start md:justify-between gap-3 md:gap-0 w-full">
-            <h2 className="text-3xl font-bold text-white drop-shadow">
-              {user.firstName} {user.lastName}
+          <div className="flex flex-col md:flex-row items-center md:items-start md:justify-between gap-4 w-full">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-wide drop-shadow-md">
+              {user ? `${user.firstName} ${user.lastName}` : "User"}
             </h2>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 active:scale-95 transition"
+              className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-medium rounded-2xl shadow-lg hover:shadow-blue-500/30 hover:scale-105 active:scale-95 transition"
             >
               <Pencil size={18} /> Edit Profile
             </button>
@@ -52,42 +41,45 @@ const Profile = () => {
           />
 
           {/* Bio */}
-          <p className="text-gray-300 leading-relaxed">{user.description}</p>
-          <p className="text-gray-400 text-sm">📧 {user.email}</p>
+          <p className="text-gray-300 leading-relaxed text-lg">
+            {user.bio ||
+              "Sharing travel guides, tips, and experiences for passionate global explorers."}
+          </p>
+          <p className="text-gray-400 text-sm italic">✉️ {user.email}</p>
 
           {/* Social Links */}
-          <div className="flex justify-center md:justify-start gap-6 mt-5">
+          <div className="flex justify-center md:justify-start gap-8 mt-6">
             <a
               href={user.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition transform hover:scale-110"
+              className="text-gray-300 hover:text-white transition transform hover:scale-125"
             >
-              <Github size={26} />
+              <Github size={28} />
             </a>
             <a
               href={user.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-600 transition transform hover:scale-110"
+              className="text-blue-400 hover:text-blue-600 transition transform hover:scale-125"
             >
-              <Linkedin size={26} />
+              <Linkedin size={28} />
             </a>
             <a
               href={user.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sky-400 hover:text-sky-600 transition transform hover:scale-110"
+              className="text-sky-400 hover:text-sky-600 transition transform hover:scale-125"
             >
-              <Twitter size={26} />
+              <Twitter size={28} />
             </a>
             <a
               href={user.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-pink-400 hover:text-pink-600 transition transform hover:scale-110"
+              className="text-pink-400 hover:text-pink-600 transition transform hover:scale-125"
             >
-              <Instagram size={26} />
+              <Instagram size={28} />
             </a>
           </div>
         </div>
