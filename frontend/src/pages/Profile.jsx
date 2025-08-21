@@ -48,7 +48,7 @@ const Profile = () => {
           <p className="text-gray-400 text-sm italic">✉️ {user.email}</p>
 
           {/* Social Links */}
-          <div className="flex justify-center md:justify-start gap-8 mt-6">
+          <div className="flex justify-center md:justify-start gap-5 mt-6">
             <a
               href={user.github}
               target="_blank"
