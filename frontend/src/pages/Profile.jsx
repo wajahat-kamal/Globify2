@@ -91,6 +91,7 @@ const Profile = () => {
           <EditProfile
             isOpen={isModalOpen}
             onClose={() => setIsModalOpen(false)}
+            user={user}
           />
 
           {/* Contact Info */}
