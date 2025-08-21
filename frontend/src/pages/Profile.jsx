@@ -24,7 +24,7 @@ const Profile = () => {
             <img
               src={user.photoUrl}
               alt="User Avatar"
-              className="relative w-40 h-40 md:w-45 md:h-45 rounded-full border-2 border-blue-500 shadow-lg object-cover transition-transform duration-500 group-hover:scale-105"
+              className="relative w-45 h-45 rounded-full border-2 border-blue-500 shadow-lg object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
 

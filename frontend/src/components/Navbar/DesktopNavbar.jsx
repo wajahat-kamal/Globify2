@@ -25,14 +25,22 @@ function DesktopNavbar({ user, setShowLogoutPopup }) {
       <Link to="/about" className={linkClasses("/about")}>
         About
       </Link>
-      <Link to="/blogs" className={linkClasses("/blogs")}>
+      <Link
+        to="/blogs"
+        c
+        border
+        border-green-500lassName={linkClasses("/blogs")}
+      >
         Blogs
       </Link>
 
       {user ? (
         <div className="relative group">
           {/* User Button */}
-          <button className="bg-gradient-to-r from-green-600 to-blue-900 px-4 py-2 text-[16px] rounded-xl hover:from-green-500 hover:to-blue-800 transition-all duration-300 flex justify-center items-center gap-2 shadow-md border border-green-500">
+          <button
+            className="bg-gradient-to-r from-gray-800/80 to-blue-900/80 
+              hover:from-gray-700 hover:to-blue-800  px-4 py-2 text-[16px] rounded-xl transition-all duration-300 flex justify-center items-center gap-2 shadow-md"
+          >
             <img
               src="/user-avatar.png"
               className="w-9 h-9 rounded-full border-2 border-yellow-400 shadow-sm"
