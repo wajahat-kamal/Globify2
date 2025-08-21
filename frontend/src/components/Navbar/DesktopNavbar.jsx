@@ -27,9 +27,7 @@ function DesktopNavbar({ user, setShowLogoutPopup }) {
       </Link>
       <Link
         to="/blogs"
-        c
-        border
-        border-green-500lassName={linkClasses("/blogs")}
+        className={linkClasses("/blogs")}
       >
         Blogs
       </Link>
