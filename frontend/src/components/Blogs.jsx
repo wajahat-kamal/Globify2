@@ -14,7 +14,7 @@ function Blogs() {
 
       <div className="relative z-10">
         {/* Heading */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-5">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight drop-shadow-lg">
             Recent <span className="text-amber-400">Blogs</span>
           </h1>
