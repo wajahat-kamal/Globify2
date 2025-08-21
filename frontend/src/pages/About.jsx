@@ -14,7 +14,7 @@ function About() {
         style={{ backgroundImage: "url('main-bg.jpg')" }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
 
         {/* Content Card */}
         <div className="relative max-w-4xl text-gray-100 backdrop-blur-lg bg-white/5 border border-white/10 shadow-xl rounded-3xl p-8 md:p-12 space-y-6 text-center animate-fadeIn">
