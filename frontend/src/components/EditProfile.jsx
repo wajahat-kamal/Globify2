@@ -117,9 +117,9 @@ const EditProfile = ({ isOpen, onClose, user }) => {
   };
 
   return (
-    <div className="fixed inset-0 h-full bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 px-3">
+    <div className="fixed inset-0 z-50 flex items-center justify-start bg-black/60 backdrop-blur-sm">
       {/* Modal Box */}
-      <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl w-full max-w-md p-6 border border-gray-200">
+      <div className="relative md:top-30 lg:left-35 sm:left-30 bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl w-full max-w-md p-5 sm:p-6 border border-gray-200">
         {toast.show && (
           <Toast
             message={toast.message}
@@ -129,8 +129,8 @@ const EditProfile = ({ isOpen, onClose, user }) => {
         )}
 
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900">
             Edit Profile
           </h2>
           <button
@@ -144,7 +144,7 @@ const EditProfile = ({ isOpen, onClose, user }) => {
         {/* Form */}
         <form className="space-y-3 text-black" onSubmit={submitHandler}>
           {/* First & Last Name */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-black">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <input
               type="text"
               name="firstName"
@@ -168,7 +168,7 @@ const EditProfile = ({ isOpen, onClose, user }) => {
             type="email"
             name="email"
             placeholder="Enter your Email"
-            className="w-full border text-black border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500"
             value={input.email}
             onChange={changeEventHandler}
           />
@@ -178,13 +178,13 @@ const EditProfile = ({ isOpen, onClose, user }) => {
             type="text"
             name="occupation"
             placeholder="Occupation (e.g. Web Developer, Designer)"
-            className="w-full border text-black border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-500"
             value={input.occupation}
             onChange={changeEventHandler}
           />
 
           {/* Github & LinkedIn */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-black">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <input
               type="text"
               name="github"
@@ -204,7 +204,7 @@ const EditProfile = ({ isOpen, onClose, user }) => {
           </div>
 
           {/* Twitter & Instagram */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-black">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <input
               type="text"
               name="twitter"
@@ -227,25 +227,25 @@ const EditProfile = ({ isOpen, onClose, user }) => {
           <textarea
             name="bio"
             placeholder="Write a short professional bio..."
-            rows="3"
-            className="w-full border text-black border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 resize-none"
+            rows="2"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 resize-none"
             value={input.bio}
             onChange={changeEventHandler}
           />
 
-          {/* Picture Upload + Preview */}
-          <div className="bg-gray-200 p-2 rounded-lg text-black">
+          {/* Picture Upload + Preview inline */}
+          <div className="flex items-center gap-3 bg-gray-100 p-2 rounded-lg">
             <input
               type="file"
               accept="image/*"
-              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-600 hover:file:bg-blue-100 cursor-pointer"
+              className="block w-full text-xs text-gray-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-medium file:bg-blue-50 file:text-blue-600 hover:file:bg-blue-100 cursor-pointer"
               onChange={changeFileHandler}
             />
             {input.preview && (
               <img
                 src={input.preview}
                 alt="Preview"
-                className="mt-3 w-20 h-20 rounded-full object-cover border"
+                className="w-10 h-10 rounded-full object-cover border"
               />
             )}
           </div>
@@ -255,14 +255,14 @@ const EditProfile = ({ isOpen, onClose, user }) => {
             <button
               type="button"
               disabled
-              className="w-full bg-gray-400 text-white rounded-lg py-2.5 font-medium flex items-center justify-center cursor-not-allowed"
+              className="w-full bg-gray-400 text-white rounded-lg py-2 font-medium flex items-center justify-center cursor-not-allowed"
             >
               <Loader2 className="mr-2 w-4 h-4 animate-spin" /> Please wait
             </button>
           ) : (
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg py-2.5 font-medium hover:from-blue-700 hover:to-indigo-700 active:scale-95 transition"
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg py-2 font-medium hover:from-blue-700 hover:to-indigo-700 active:scale-95 transition"
             >
               Save Changes
             </button>
