@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from 'axios'
+import { setUser } from '@/redux/authSlice'
 
 const EditProfile = ({ isOpen, onClose, user }) => {
   if (!isOpen) return null;
@@ -54,7 +55,16 @@ const EditProfile = ({ isOpen, onClose, user }) => {
     try {
         dispatch(setLoading(true))
         
-        const res = await axios.put("http://localhost:8000/api/v1/user/profile/update")
+        const res = await axios.put("http://localhost:8000/api/v1/user/profile/update", formData({
+          headers: {
+            "Content-Type": "multipart/form-data"
+        },
+        withCredentials: true,
+        }))
+
+        if (res.data.success) {
+         dispatch(setUser(res.dara.user)) 
+        }
 
     } catch (error) {
       
