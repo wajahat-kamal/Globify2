@@ -8,42 +8,11 @@ import {
   Mail,
 } from "lucide-react";
 import EditProfile from "../components/EditProfile";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { user } = useSelector((store) => store.auth);
-  const dispatch = useDispatch()
-
-  const [input, setInput] = useState({
-    firstName: user?.firstName || "",
-    lastName: user?.lastName || "",
-    email: user?.email || "",
-    bio: user?.bio || "",
-    linkedin: user?.linkedin || "",
-    instagram: user?.instagram || "",
-    twitter: user?.twitter || "",
-    github: user?.github || "",
-    file: user?.photoUrl || "",
-  });
-
-  const changeEventHandler = (e) => {
-    const [name, value] = e.target;
-
-    setInput((prev)=>({
-      ...prev,
-      [name]: value
-    }))
-  }
-
-  const changeFileHandler = (e) => {
-    setInput({...input, file:e.target.files?.[0]})
-  }
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-  }
-
 
   return (
     <div className="p-6 pt-24 md:ml-[300px] bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white min-h-screen">
@@ -93,7 +62,6 @@ const Profile = () => {
             isOpen={isModalOpen}
             onClose={() => setIsModalOpen(false)}
             user={user}
-            dispatch={dispatch}
           />
 
           {/* Contact Info */}
