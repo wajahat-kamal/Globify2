@@ -52,7 +52,7 @@ const Profile = () => {
         <div className="relative group flex flex-col items-center">
           <div className="relative">
             <img
-              src={user.photoUrl}
+              src={user.photoUrl || "/user-avatar.png"}
               alt="User Avatar"
               className="relative w-45 h-45 rounded-full border-2 border-blue-500 shadow-lg object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -106,7 +106,7 @@ const Profile = () => {
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl px-5 py-3 border border-white/10">
             <p className="text-gray-200 leading-relaxed text-md font-medium">
               {user.bio ||
-                "Sharing travel guides, tips, and experiences for passionate global explorers."}
+                "Write a short professional bio"}
             </p>
           </div>
 

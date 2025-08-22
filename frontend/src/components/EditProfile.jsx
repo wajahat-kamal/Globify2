@@ -1,19 +1,23 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 const EditProfile = ({ isOpen, onClose, user }) => {
   if (!isOpen) return null;
+  const dispatch = useDispatch()
 
   const [input, setInput] = useState({
     firstName: user?.firstName || "",
     lastName: user?.lastName || "",
+    occupation: user?.occupation || "",
+    github: user?.github || "",
+    linkedin: user?.linkedin || "",
+    twitter: user?.twitter || "",
+    instagram: user?.instagram || "",
     email: user?.email || "",
     bio: user?.bio || "",
-    linkedin: user?.linkedin || "",
-    instagram: user?.instagram || "",
-    twitter: user?.twitter || "",
-    github: user?.github || "",
-    file: user?.photoUrl || "",
+    file: user?.photoUrl
   });
+  
 
   const changeEventHandler = (e) => {
     const { name, value } = e.target;
@@ -31,12 +35,33 @@ const EditProfile = ({ isOpen, onClose, user }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(input);
+
+    const formData = new FormData();
+    formData.append("firstName", input.firstName);
+    formData.append("lastName", input.lastName);
+    formData.append("bio", input.bio);
+    formData.append("occupation", input.occupation);
+    formData.append("email", input.email);
+    formData.append("twitter", input.twitter);
+    formData.append("linkedin", input.linkedin);
+    formData.append("github", input.github);
+    formData.append("instagram", input.instagram);
+    if (input?.file) {
+      formData.append("file", input?.file)
+    }
+    
+    try {
+        dispatch(setLoading(true))
+    } catch (error) {
+      
+    }
+
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start justify-center md:justify-start z-50 px-3">
+    <div className="fixed inset-0 h-full bg-black/50 backdrop-blur-sm flex items-start justify-center md:justify-start z-50 px-3">
       {/* Modal Box */}
-      <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl w-full max-w-md p-5 sm:p-7 border border-gray-200">
+      <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl w-full max-w-md lg:ml-30 p-5 sm:p-7 border border-gray-200">
         <div className="mb-8">
           {/* Close Button */}
           <button
@@ -77,6 +102,30 @@ const EditProfile = ({ isOpen, onClose, user }) => {
                 onChange={changeEventHandler}
               />
             </div>
+          </div>
+
+            {/* Email */}
+            <div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your Email"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm sm:text-base text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition resize-none"
+              value={input.email}
+              onChange={changeEventHandler}
+            />
+          </div>
+
+          {/* Occupation */}
+          <div>
+            <input
+              type="text"
+              name="occupation"
+              placeholder="Occupation (e.g. Web Developer, Designer)"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm sm:text-base text-gray-800 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition"
+              value={input.occupation}
+              onChange={changeEventHandler}
+            />
           </div>
 
           {/* Github & LinkedIn */}
@@ -129,23 +178,11 @@ const EditProfile = ({ isOpen, onClose, user }) => {
             </div>
           </div>
 
-          {/* Email */}
-          <div>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your Email"
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm sm:text-base text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition resize-none"
-              value={input.email}
-              onChange={changeEventHandler}
-            />
-          </div>
-
           {/* Description */}
           <div>
             <textarea
               name="bio"
-              placeholder="Write a Description"
+              placeholder="Write a short professional bio..."
               rows="3"
               className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm sm:text-base text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition resize-none"
               value={input.bio}
@@ -159,11 +196,11 @@ const EditProfile = ({ isOpen, onClose, user }) => {
               type="file"
               accept="image/*"
               className="block w-full text-sm text-gray-500 
-              file:mr-4 file:py-2 file:px-4
-              file:rounded-2xl file:border-0
-              file:text-sm file:font-semibold
-              file:bg-blue-50 file:text-blue-600
-              hover:file:bg-blue-100 cursor-pointer"
+        file:mr-4 file:py-2 file:px-4
+        file:rounded-2xl file:border-0
+        file:text-sm file:font-semibold
+        file:bg-blue-50 file:text-blue-600
+        hover:file:bg-blue-100 cursor-pointer"
               onChange={changeFileHandler}
             />
           </div>
