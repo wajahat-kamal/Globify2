@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from 'axios'
 import { setUser } from '@/redux/authSlice'
+import toast from "./Toast"
 
 const EditProfile = ({ isOpen, onClose, user }) => {
+  const [toast, setToast] = useState({ show: false, message: "", type: "" });
   if (!isOpen) return null;
   const dispatch = useDispatch()
 
@@ -63,11 +65,19 @@ const EditProfile = ({ isOpen, onClose, user }) => {
         }))
 
         if (res.data.success) {
+          setToast({
+            show: true,
+            message: res.data.message || "Profile Updated Successfully",
+            type: success
+          })
          dispatch(setUser(res.dara.user)) 
         }
 
     } catch (error) {
+      console.log(error);
       
+    }finally {
+      dispatch(setLoading(false))
     }
 
   };
@@ -76,6 +86,13 @@ const EditProfile = ({ isOpen, onClose, user }) => {
     <div className="fixed inset-0 h-full bg-black/50 backdrop-blur-sm flex items-start justify-center md:justify-start z-50 px-3">
       {/* Modal Box */}
       <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl w-full max-w-md lg:ml-30 p-5 sm:p-7 border border-gray-200">
+      {toast.show && (
+            <Toast
+              message={toast.message}
+              type={toast.type}
+              onClose={() => setToast({ ...toast, show: false })}
+            />
+          )}
         <div className="mb-8">
           {/* Close Button */}
           <button
