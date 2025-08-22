@@ -43,36 +43,36 @@ const Profile = () => {
   ];
 
   return (
-    <div className="p-6 pt-24 md:ml-[300px] bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white min-h-screen">
+    <div className="p-6 pt-24 bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white min-h-screen md:ml-[300px]">
       {/* Profile Card */}
-      <div className="bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-10 flex flex-col md:flex-row items-center md:items-start gap-10 w-full border border-white/20 hover:border-blue-500/40 transition-all duration-300">
+      <div className="bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-10 w-full max-w-5xl mx-auto border border-white/20 hover:border-blue-500/40 transition-all duration-300">
         {/* Avatar Section */}
         <div className="relative flex flex-col items-center">
           <img
             src={user?.photoUrl || "/user-avatar.png"}
             alt="User Avatar"
-            className="w-40 h-40 md:w-48 md:h-48 rounded-full border-2 border-blue-500 shadow-lg object-cover transition-transform duration-500 hover:scale-105"
+            className="w-32 h-32 sm:w-36 sm:h-36 md:w-48 md:h-48 rounded-full border-2 border-blue-500 shadow-lg object-cover transition-transform duration-500 hover:scale-105"
           />
 
           {/* Occupation Badge */}
-          <div className="mt-5 text-center">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm md:text-md font-medium shadow-lg">
+          <div className="mt-4 md:mt-5 text-center">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full text-sm md:text-md font-medium shadow-lg">
               {user?.occupation || "Travel Blogger"}
             </span>
           </div>
         </div>
 
         {/* Info Section */}
-        <div className="flex-1 space-y-6 text-center md:text-left">
+        <div className="flex-1 space-y-5 md:space-y-6 text-center md:text-left w-full">
           {/* Header */}
           <div className="flex flex-col md:flex-row items-center md:items-start md:justify-between gap-4 w-full">
-            <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent tracking-wide drop-shadow-md">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent tracking-wide drop-shadow-md">
               {user ? `${user.firstName || ""} ${user.lastName || ""}` : "User"}
             </h2>
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="group flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-medium rounded-2xl shadow-lg hover:shadow-blue-500/30 hover:scale-105 active:scale-95 transition-all duration-300"
+              className="group flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-medium rounded-2xl shadow-lg hover:shadow-blue-500/30 hover:scale-105 active:scale-95 transition-all duration-300"
             >
               <Pencil
                 size={18}
@@ -98,8 +98,8 @@ const Profile = () => {
           )}
 
           {/* Bio Section */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl px-5 py-3 border border-white/10">
-            <p className="text-gray-200 leading-relaxed text-md font-medium">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl px-4 sm:px-5 py-3 border border-white/10">
+            <p className="text-gray-200 leading-relaxed text-sm sm:text-md md:text-base font-medium">
               {user?.bio || "Write a short professional bio"}
             </p>
           </div>
@@ -115,15 +115,15 @@ const Profile = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`p-2 rounded-lg border transition-all duration-300 hover:scale-110
-                      ${
-                        color === "gray"
-                          ? "bg-gray-800/50 border-gray-700 hover:border-blue-500 hover:bg-gray-700/50"
-                          : color === "blue"
-                          ? "bg-blue-800/50 border-blue-700 hover:border-blue-400 hover:bg-blue-700/50"
-                          : color === "sky"
-                          ? "bg-sky-800/50 border-sky-700 hover:border-sky-400 hover:bg-sky-700/50"
-                          : "bg-pink-800/50 border-pink-700 hover:border-pink-400 hover:bg-pink-700/50"
-                      }`}
+                    ${
+                      color === "gray"
+                        ? "bg-gray-800/50 border-gray-700 hover:border-blue-500 hover:bg-gray-700/50"
+                        : color === "blue"
+                        ? "bg-blue-800/50 border-blue-700 hover:border-blue-400 hover:bg-blue-700/50"
+                        : color === "sky"
+                        ? "bg-sky-800/50 border-sky-700 hover:border-sky-400 hover:bg-sky-700/50"
+                        : "bg-pink-800/50 border-pink-700 hover:border-pink-400 hover:bg-pink-700/50"
+                    }`}
                   >
                     <Icon
                       size={20}
