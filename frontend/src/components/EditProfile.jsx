@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import axios from 'axios'
 
 const EditProfile = ({ isOpen, onClose, user }) => {
   if (!isOpen) return null;
@@ -32,7 +33,7 @@ const EditProfile = ({ isOpen, onClose, user }) => {
     setInput({ ...input, file: e.target.files?.[0] });
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     console.log(input);
 
@@ -52,6 +53,9 @@ const EditProfile = ({ isOpen, onClose, user }) => {
     
     try {
         dispatch(setLoading(true))
+        
+        const res = await axios.put("http://localhost:8000/api/v1/user/profile/update")
+
     } catch (error) {
       
     }
