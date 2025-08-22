@@ -8,11 +8,12 @@ import {
   Mail,
 } from "lucide-react";
 import EditProfile from "../components/EditProfile";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Profile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { user } = useSelector((store) => store.auth);
+  const dispatch = useDispatch()
 
   const [input, setInput] = useState({
     firstName: user?.firstName || "",
@@ -92,6 +93,7 @@ const Profile = () => {
             isOpen={isModalOpen}
             onClose={() => setIsModalOpen(false)}
             user={user}
+            dispatch={dispatch}
           />
 
           {/* Contact Info */}

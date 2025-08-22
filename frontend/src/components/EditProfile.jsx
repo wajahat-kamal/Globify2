@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import axios from 'axios'
-import { setUser } from '@/redux/authSlice'
-import toast from "./Toast"
+import axios from "axios";
+import { setUser } from "../redux/authSlice";
+import Toast from "./Toast";
 
-const EditProfile = ({ isOpen, onClose, user }) => {
+const EditProfile = ({ isOpen, onClose, user, dispatch }) => {
   const [toast, setToast] = useState({ show: false, message: "", type: "" });
+  const [loading, setLoading] = useState(false);
+
   if (!isOpen) return null;
-  const dispatch = useDispatch()
 
   const [input, setInput] = useState({
     firstName: user?.firstName || "",
@@ -19,9 +19,8 @@ const EditProfile = ({ isOpen, onClose, user }) => {
     instagram: user?.instagram || "",
     email: user?.email || "",
     bio: user?.bio || "",
-    file: user?.photoUrl
+    file: user?.photoUrl,
   });
-  
 
   const changeEventHandler = (e) => {
     const { name, value } = e.target;
@@ -51,48 +50,49 @@ const EditProfile = ({ isOpen, onClose, user }) => {
     formData.append("github", input.github);
     formData.append("instagram", input.instagram);
     if (input?.file) {
-      formData.append("file", input?.file)
+      formData.append("file", input?.file);
     }
-    
+
     try {
-        dispatch(setLoading(true))
-        
-        const res = await axios.put("http://localhost:8000/api/v1/user/profile/update", formData({
+      dispatch(setLoading(true));
+
+      const res = await axios.put(
+        "http://localhost:8000/api/v1/user/profile/update",
+        formData,
+        {
           headers: {
-            "Content-Type": "multipart/form-data"
-        },
-        withCredentials: true,
-        }))
-
-        if (res.data.success) {
-          setToast({
-            show: true,
-            message: res.data.message || "Profile Updated Successfully",
-            type: success
-          })
-         dispatch(setUser(res.dara.user)) 
+            "Content-Type": "multipart/form-data",
+          },
+          withCredentials: true,
         }
+      );
 
+      if (res.data.success) {
+        setToast({
+          show: true,
+          message: res.data.message || "Profile Updated Successfully",
+          type: success,
+        });
+        dispatch(setUser(res.dara.user));
+      }
     } catch (error) {
       console.log(error);
-      
-    }finally {
-      dispatch(setLoading(false))
+    } finally {
+      dispatch(setLoading(false));
     }
-
   };
 
   return (
     <div className="fixed inset-0 h-full bg-black/50 backdrop-blur-sm flex items-start justify-center md:justify-start z-50 px-3">
       {/* Modal Box */}
       <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl w-full max-w-md lg:ml-30 p-5 sm:p-7 border border-gray-200">
-      {toast.show && (
-            <Toast
-              message={toast.message}
-              type={toast.type}
-              onClose={() => setToast({ ...toast, show: false })}
-            />
-          )}
+        {toast.show && (
+          <Toast
+            message={toast.message}
+            type={toast.type}
+            onClose={() => setToast({ ...toast, show: false })}
+          />
+        )}
         <div className="mb-8">
           {/* Close Button */}
           <button
@@ -135,8 +135,8 @@ const EditProfile = ({ isOpen, onClose, user }) => {
             </div>
           </div>
 
-            {/* Email */}
-            <div>
+          {/* Email */}
+          <div>
             <input
               type="email"
               name="email"
@@ -237,13 +237,19 @@ const EditProfile = ({ isOpen, onClose, user }) => {
           </div>
 
           {/* Save Button */}
-          <button
-            onClick={submitHandler}
-            type="submit"
-            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg py-2.5 font-medium hover:from-blue-700 hover:to-indigo-700 active:scale-95 transition"
-          >
-            Save Changes
-          </button>
+          {loading ? (
+            <Button>
+              <Loader2 className="mr-2 w-4 h-4 animate-spin" /> Please wait
+            </Button>
+          ) : (
+            <button
+              onClick={submitHandler}
+              type="submit"
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg py-2.5 font-medium hover:from-blue-700 hover:to-indigo-700 active:scale-95 transition"
+            >
+              Save Changes
+            </button>
+          )}
         </form>
       </div>
     </div>
