@@ -15,8 +15,6 @@ function Navbar() {
   const { user } = useSelector((store) => store.auth);
   const toggleMenu = () => setIsOpen(!isOpen);
 
-
-
   return (
     <nav
       className="fixed top-0 z-50 w-full backdrop-blur-md 
@@ -50,15 +48,16 @@ function Navbar() {
             <input
               type="text"
               placeholder="Search blogs..."
-              className="bg-transparent px-4 py-2 text-sm focus:outline-none 
+              className="bg-transparent px-4 text-sm focus:outline-none 
                 w-full text-gray-200 placeholder:text-gray-400"
             />
             <button
-              className="p-2 px-3 rounded-r-full bg-gradient-to-r from-amber-500/90 to-amber-600/90
-                hover:from-amber-500 hover:to-amber-400 transition-all duration-300
+              className="p-2 px-3 rounded-r-full bg-amber-500
+                
+               hover:bg-amber-400 transition-all duration-300
                 text-white"
             >
-              <Search className="w-4 h-4" />
+              <Search className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -83,9 +82,7 @@ function Navbar() {
 
       {/* Logout Popup */}
       {showLogoutPopup && (
-        <LogoutPopup
-          setShowLogoutPopup={setShowLogoutPopup}
-        />
+        <LogoutPopup setShowLogoutPopup={setShowLogoutPopup} />
       )}
 
       {/* Mobile Menu */}

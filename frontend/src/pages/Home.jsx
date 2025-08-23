@@ -13,7 +13,6 @@ function Home() {
 
       <Background>
         <Hero />
-        <Blogs />
       </Background>
     </>
   );

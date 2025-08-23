@@ -118,7 +118,7 @@ function DesktopNavbar({ user, setShowLogoutPopup }) {
       ) : (
         <>
           <Link to="/signup">
-            <button className="bg-gradient-to-r from-yellow-500 to-green-600 px-6 py-2 text-[16px] rounded-xl text-blue-950 font-bold shadow-lg hover:from-yellow-400 hover:to-green-500 transition-all duration-300 border border-yellow-400">
+            <button className="bg-amber-500 px-6 py-2 text-[16px] rounded-xl text-white font-bold shadow-lg hover:bg-amber-400 transition-all duration-300 border border-yellow-400">
               Signup
             </button>
           </Link>
