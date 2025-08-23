@@ -10,73 +10,55 @@ import { logout } from "../redux/authSlice";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => setIsOpen(!isOpen);
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
 
   const { user } = useSelector((store) => store.auth);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const toggleMenu = () => setIsOpen(!isOpen);
 
-  const handleLogout = async () => {
-    try {
-      const res = await axios.get("http://localhost:8000/api/v1/user/logout", {
-        withCredentials: true,
-      });
-      if (res.data.success) {
-        navigate("/");
-        dispatch(logout());
-      }
-    } catch (error) {
-      console.error("Logout error:", error);
-      dispatch(logout());
-    }
-    setShowLogoutPopup(false);
-  };
+
 
   return (
     <nav
       className="fixed top-0 z-50 w-full backdrop-blur-md 
-      bg-gradient-to-r from-gray-900 via-blue-950 to-amber-600 
-      border-b border-blue-800 shadow-lg transition-colors duration-500"
+      bg-gradient-to-r from-gray-950 via-blue-950 to-gray-950
+      border-b border-amber-500/20 shadow-lg"
     >
-      <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-5 py-3 flex justify-between items-center">
         {/* Left Section */}
-        <div className="flex items-center gap-10">
+        <div className="flex items-center gap-6">
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-2 group hover:scale-105 transition-transform"
+            className="flex items-center gap-2 group hover:scale-[1.03] transition-transform"
           >
             <img
               src="/main-logo.png"
               alt="logo"
-              className="w-10 h-10 rounded-full border-2 border-amber-400 shadow-md group-hover:shadow-amber-400/50 transition-all"
+              className="w-10 h-10 rounded-full border border-amber-400 shadow-md group-hover:shadow-amber-400/50 transition-all"
             />
-            <span className="text-2xl font-extrabold tracking-wide text-amber-400 drop-shadow-lg group-hover:text-amber-300 transition-colors">
+            <span className="text-xl font-bold tracking-wide text-amber-400 drop-shadow-sm group-hover:text-amber-300 transition-colors">
               GLOBIFY
             </span>
           </Link>
 
           {/* Search - Desktop */}
           <div
-            className="hidden md:flex items-center w-80
-  bg-gradient-to-r from-gray-800/95 via-blue-900/95 to-gray-800/95
-  rounded-full overflow-hidden border border-amber-400/40 shadow-md
-  focus-within:shadow-[0_0_15px_rgba(251,191,36,0.8)] transition-all duration-300"
+            className="hidden md:flex items-center w-72
+              bg-gray-900/70 rounded-full border border-amber-400/30 shadow-sm
+              focus-within:border-amber-400/70 transition-all duration-300"
           >
             <input
               type="text"
-              name="search"
-              placeholder="Search Blogs..."
+              placeholder="Search blogs..."
               className="bg-transparent px-4 py-2 text-sm focus:outline-none 
-    w-full text-gray-200 placeholder-amber-300"
+                w-full text-gray-200 placeholder:text-gray-400"
             />
             <button
-              className="p-2 px-3 bg-gradient-to-r from-blue-800 to-gray-900
-    hover:from-amber-500 hover:to-blue-700 transition-all duration-300
-    text-amber-300 hover:text-white rounded-r-full"
+              className="p-2 px-3 rounded-r-full bg-gradient-to-r from-amber-500/90 to-amber-600/90
+                hover:from-amber-500 hover:to-amber-400 transition-all duration-300
+                text-white"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -88,12 +70,12 @@ function Navbar() {
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
-            className="text-white hover:text-amber-400 transition-colors duration-300"
+            className="text-gray-200 hover:text-amber-400 transition-colors duration-300"
           >
             {isOpen ? (
-              <X className="w-6 h-6 text-amber-400 transition-all duration-300" />
+              <X className="w-6 h-6 transition-all duration-300" />
             ) : (
-              <Menu className="w-6 h-6 text-blue-300 transition-all duration-300" />
+              <Menu className="w-6 h-6 transition-all duration-300" />
             )}
           </button>
         </div>
@@ -103,7 +85,6 @@ function Navbar() {
       {showLogoutPopup && (
         <LogoutPopup
           setShowLogoutPopup={setShowLogoutPopup}
-          handleLogout={handleLogout}
         />
       )}
 
