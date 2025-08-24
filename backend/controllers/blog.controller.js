@@ -1,20 +1,19 @@
-import Blog from "../models/blog.model.js";
+import { Blog } from "../models/blog.model.js";
 
 export const createBlog = async (req, res) => {
   try {
-    const { title, content } = req.body;
+    const { title } = req.body;
 
-    if (!title || !content) {
+    if (!title) {
       return res.status(400).json({
         success: false,
-        message: "Blog title and content are required.",
+        message: "Blog title are required.",
       });
     }
 
     const blog = await Blog.create({
       title,
-      content,
-      author: req.id, 
+      author: req.id,
     });
 
     return res.status(201).json({
