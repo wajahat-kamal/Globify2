@@ -1,31 +1,39 @@
-import express from "express"
-import dotenv from "dotenv"
-import connectDB from "./database/db.js"
-import userRoute from "./routes/user.route.js"
-import cookieParser from 'cookie-parser';
-import cors from 'cors'
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./database/db.js";
+import userRoute from "./routes/user.route.js";
+import blogRoute from "./routes/blog.route.js";
+import cookieParser from "cookie-parser";
+import cors from "cors";
 
-dotenv.config()
-const app = express()
+dotenv.config();
+const app = express();
 
-const PORT = process.env.PORT || 8000
-
+const PORT = process.env.PORT || 8000;
 
 // default middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.urlencoded({extended:true}));
-app.use(cors({
-    origin:  "http://localhost:5173",
-    credentials: true
-}))
-
+app.use(express.urlencoded({ extended: true }));
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 // apis
- app.use("/api/v1/user", userRoute)
+app.use("/api/v1/user", userRoute);
+app.use("/api/v1/blog", blogRoute);
 
-
-app.listen(PORT, ()=>{
-    console.log(`Server listen at port ${PORT}`);
-    connectDB()
-})
+// Connect DB first, then start server
+connectDB()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`✅ Server running at http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("❌ Failed to connect to DB", err);
+    process.exit(1);
+  });
