@@ -1,5 +1,5 @@
-import React from "react";
-import Blog from "./Blog";
+import React from "react";;
+import BlogCard from "./BlogCard";
 
 function Blogs() {
   return (
@@ -34,12 +34,12 @@ function Blogs() {
 
         {/* Blog Grid */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 place-items-center">
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
+          <BlogCard />
+          <BlogCard />
+          <BlogCard />
+          <BlogCard />
+          <BlogCard />
+          <BlogCard />
         </div>
       </div>
     </section>
