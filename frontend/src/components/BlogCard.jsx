@@ -2,7 +2,10 @@ import React from "react";
 
 function BlogCard() {
   return (
-    <div className="bg-gray-900/60 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-amber-500/20 hover:-translate-y-2 transition-all duration-500 max-w-[360px] border border-gray-700 group">
+    <div
+      className="bg-gray-900/60 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-amber-500/20 hover:-translate-y-2 transition-all duration-500 max-w-[360px] border border-gray-700 group animate-fadeInUp"
+      style={{ animationDelay: "1.3s" }}
+    >
       {/* Blog Image */}
       <div className="relative overflow-hidden">
         <img
@@ -45,7 +48,9 @@ function BlogCard() {
             <h4 className="font-medium text-gray-200 text-sm">
               Sophia Bennett
             </h4>
-            <p className="text-xs text-gray-400">Travel Blogger & Photographer</p>
+            <p className="text-xs text-gray-400">
+              Travel Blogger & Photographer
+            </p>
           </div>
         </div>
       </div>
