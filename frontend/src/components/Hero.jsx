@@ -26,13 +26,13 @@ function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0 mt-10 justify-center">
-          <Link to="/dashboard">
+          <Link to="/dashboard/profile">
             <button className="bg-amber-500 text-blue-900 font-bold px-8 py-3 rounded-2xl shadow-lg hover:bg-amber-400 hover:scale-105 hover:shadow-amber-500/40 transition-all duration-300 w-full sm:w-auto">
               ✈ Get Started
             </button>
           </Link>
           <Link to="/about">
-            <button className="border-2 border-amber-400 text-amber-400 font-bold px-8 py-3 rounded-2xl hover:bg-amber-400 hover:text-blue-900 hover:scale-105 hover:shadow-lg transition-all duration-300 w-full sm:w-auto">
+            <button className="border-2 border-amber-400 text-amber-400 font-bold px-8 py-3 rounded-2xl hover:bg-amber-400 hover:text-blue-900 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/40 transition-all duration-300 w-full sm:w-auto">
               🌍 Learn More
             </button>
           </Link>
