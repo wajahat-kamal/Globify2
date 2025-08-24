@@ -8,7 +8,7 @@ function Blogs() {
       <Helmet>
         <title>Blogs | Globify</title>
       </Helmet>
-      <div className="mt-10 text-gray-800">
+      <div>
         <BlogPage />
       </div>
     </>
