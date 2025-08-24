@@ -3,7 +3,7 @@ import BlogCard from "./BlogCard";
 
 function Blogs() {
   return (
-    <section className="relative w-full min-h-screen bg-gray-400 py-12">
+    <section className="relative w-full min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black py-12">
       {/* Hero Section */}
       <div
         className="relative flex flex-col justify-center items-center text-center w-full h-72 md:h-80 bg-cover bg-center bg-no-repeat"
