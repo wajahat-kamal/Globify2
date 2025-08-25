@@ -32,41 +32,44 @@ export const createBlog = async (req, res) => {
   }
 };
 
-
 export const updateBlog = async (req, res) => {
-   try {
+  try {
     const blogId = req.params.blogId;
-    const [title, description] = req.body;
+    const { title, description } = req.body;
     const file = req.file;
 
-    let blog = await Blog.findById(blogId)
+    let blog = await Blog.findById(blogId);
     if (!blog) {
-        return res.status(404).json({
-            success: false,
-            message: "Blog not found"
-        })
+      return res.status(404).json({
+        success: false,
+        message: "Blog not found",
+      });
     }
 
     let thumbnail;
     if (file) {
-        const fileUri = getDataUri(file)
-        thumbnail = await cloudinary.uploader.upload(fileUri)
+      const fileUri = getDataUri(file);
+      thumbnail = await cloudinary.uploader.upload(fileUri);
     }
-    
-    const updateData = {title, description, author: req.id, thumbnail: thumbnail?.secure_url}
-    blog = await Blog.findOneAndUpdate(blog, updateData, {new: true})
+
+    const updateData = {
+      title,
+      description,
+      author: req.id,
+      thumbnail: thumbnail?.secure_url,
+    };
+    blog = await Blog.findOneAndUpdate(blog, updateData, { new: true });
 
     return res.status(201).json({
-        success: true,
-        message: "Blog updated successfully..",
-        blog
-    })
-
-   } catch (error) {
+      success: true,
+      message: "Blog updated successfully..",
+      blog,
+    });
+  } catch (error) {
     console.error(error);
     return res.status(500).json({
       success: false,
       message: "Failed to update blog.",
     });
-   }
-}
+  }
+};
