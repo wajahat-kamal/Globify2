@@ -39,7 +39,10 @@ function About() {
             across cultures, industries, and experiences.
           </p>
 
-          <p className="leading-relaxed text-lg text-gray-300 animate-fadeInUp" style={{ animationDelay: "0.3s" }}>
+          <p
+            className="leading-relaxed text-lg text-gray-300 animate-fadeInUp"
+            style={{ animationDelay: "0.3s" }}
+          >
             Our mission is to create a platform where curious minds can discover
             valuable insights, fresh perspectives, and inspiring content from
             around the globe. Whether it’s technology, lifestyle, travel, or
@@ -47,13 +50,19 @@ function About() {
             meaningful conversations.
           </p>
 
-          <p className="leading-relaxed text-lg text-gray-300 animate-fadeInUp" style={{ animationDelay: "0.6s" }}>
+          <p
+            className="leading-relaxed text-lg text-gray-300 animate-fadeInUp"
+            style={{ animationDelay: "0.6s" }}
+          >
             Thank you for being part of this journey. Together, let’s keep
             learning, connecting, and growing – one story at a time.
           </p>
 
           {/* Footer note */}
-          <div className="pt-4 text-sm text-gray-400 transition duration-300 hover:text-amber-400 animate-fadeInUp" style={{ animationDelay: "0.9s" }}>
+          <div
+            className="pt-4 text-sm text-gray-400 transition duration-300 hover:text-amber-400 animate-fadeInUp"
+            style={{ animationDelay: "0.9s" }}
+          >
             🌍 Globify – Connecting Ideas, Inspiring Minds
           </div>
         </div>
