@@ -7,7 +7,7 @@ import {
   Instagram,
   Mail,
 } from "lucide-react";
-import EditProfile from "../components/EditProfile";
+import EditProfile from "../EditProfile";
 import { useSelector } from "react-redux";
 
 const Profile = () => {

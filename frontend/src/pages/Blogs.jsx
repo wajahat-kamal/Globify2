@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import BlogPage from "../components/Blogs";
+import BlogPage from "../Blogs";
 
 function Blogs() {
   return (
