@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 
 const CreateBlog = () => {
- 
   return (
     <div className="p-6 pt-20 md:ml-[300px] bg-gray-900 min-h-screen text-white">
       <h1 className="text-3xl font-extrabold mb-6 text-center md:text-left">
         📝 Write a New Blog
       </h1>
 
-      <form
-        className="max-w-2xl mx-auto bg-white/10 backdrop-blur-lg p-6 rounded-2xl shadow-lg space-y-5"
-      >
+      <form className="max-w-2xl mx-auto bg-white/10 backdrop-blur-lg p-6 rounded-2xl shadow-lg space-y-5">
         {/* Blog Title */}
         <div>
           <label className="block text-sm font-semibold mb-2">Blog Title</label>
@@ -36,7 +33,9 @@ const CreateBlog = () => {
 
         {/* Blog Description */}
         <div>
-          <label className="block text-sm font-semibold mb-2">Blog Content</label>
+          <label className="block text-sm font-semibold mb-2">
+            Blog Content
+          </label>
           <textarea
             name="description"
             placeholder="Write your blog content here..."
