@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Pencil } from "lucide-react";
+import {useDispatch} from "react-redux"
+import {useNavigate} from "react-router-dom"
 
 const CreateBlog = () => {
+
+  const [title, setTitle] = useState("")
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   return (
     <div className="p-6 pt-25 md:ml-[300px] bg-gray-900 min-h-screen text-white">
       <form className="max-w-2xl mx-auto bg-white/10 backdrop-blur-lg p-8 rounded-2xl shadow-2xl space-y-3 border border-white/10">
@@ -22,6 +30,8 @@ const CreateBlog = () => {
             placeholder="Enter blog title..."
             className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:ring-2 focus:ring-blue-500 outline-none"
             required
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
 

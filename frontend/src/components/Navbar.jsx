@@ -39,27 +39,6 @@ function Navbar() {
             </span>
           </Link>
 
-          {/* Search - Desktop */}
-          <div
-            className="hidden md:flex items-center w-72
-              bg-gray-900/70 rounded-full border border-amber-400/30 shadow-sm
-              focus-within:border-amber-400/70 transition-all duration-300"
-          >
-            <input
-              type="text"
-              placeholder="Search blogs..."
-              className="bg-transparent px-4 text-sm focus:outline-none 
-                w-full text-gray-200 placeholder:text-gray-400"
-            />
-            <button
-              className="p-2 px-3 rounded-r-full bg-amber-500
-                
-               hover:bg-amber-400 transition-all duration-300
-                text-white"
-            >
-              <Search className="w-5 h-5" />
-            </button>
-          </div>
         </div>
 
         {/* Links - Desktop */}
