@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import MobileNavbar from "./Navbar/MobileNavbar";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import DesktopNavbar from "./Navbar/DesktopNavbar";
 import LogoutPopup from "./Navbar/LogoutPopup";
-import axios from "axios";
-import { logout } from "../redux/authSlice";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

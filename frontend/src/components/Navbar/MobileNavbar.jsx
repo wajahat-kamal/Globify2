@@ -20,7 +20,7 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
   return (
     <div
       className={`md:hidden fixed top-16 right-0 w-3/4 h-screen z-40
-      bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 
+      bg-gradient-to-r from-blue-950 to-gray-950
       border-l border-amber-400/20 backdrop-blur-lg
       px-6 py-6 space-y-5 transform transition-transform duration-300 ease-in-out
       ${isOpen ? "translate-x-0" : "translate-x-full"}`}
@@ -33,7 +33,7 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
           className="flex items-center gap-3 px-4 py-2 text-gray-200 hover:text-amber-400 hover:bg-white/5 rounded-lg transition"
         >
           <Home size={18} />
-          <span className="font-medium">Home</span>
+          <span className="font-semibold">Home</span>
         </Link>
         <Link
           to="/blogs"
@@ -41,7 +41,7 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
           className="flex items-center gap-3 px-4 py-2 text-gray-200 hover:text-amber-400 hover:bg-white/5 rounded-lg transition"
         >
           <BookOpen size={18} />
-          <span className="font-medium">Blogs</span>
+          <span className="font-semibold">Blogs</span>
         </Link>
         <Link
           to="/about"
@@ -49,7 +49,7 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
           className="flex items-center gap-3 px-4 py-2 text-gray-200 hover:text-amber-400 hover:bg-white/5 rounded-lg transition"
         >
           <Info size={18} />
-          <span className="font-medium">About</span>
+          <span className="font-semibold">About</span>
         </Link>
       </nav>
 
