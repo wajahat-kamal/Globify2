@@ -10,10 +10,10 @@ function Blogs() {
         style={{ backgroundImage: "url('main-bg.jpg')" }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px] animate-fadeIn"></div>
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
 
-        <div className="relative z-10 px-4 animate-fadeInUp">
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-md">
+        <div className="relative z-10 px-4">
+          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-lg">
             Recent Blogs
           </h1>
           <p className="mt-3 text-base md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
@@ -24,14 +24,13 @@ function Blogs() {
       </div>
 
       {/* Blog Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 mt-9 animate-fadeInUp">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 mt-12">
         {/* Section Heading */}
-        <div
-          className="mb-3 ml-4 text-start animate-fadeInUp"
-          style={{ animationDelay: "0.2s" }}
-        >
-          <h2 className="text-2xl font-bold text-amber-400">Blog Posts</h2>
-          <div className="w-32 mt-1 h-1 bg-amber-500 rounded-full"></div>
+        <div className="mb-6 text-start">
+          <h2 className="text-2xl md:text-3xl font-bold text-amber-400">
+            Blog Posts
+          </h2>
+          <div className="w-28 md:w-38 mt-1 h-1 bg-amber-500 rounded-full"></div>
         </div>
 
         {/* Blog Grid */}

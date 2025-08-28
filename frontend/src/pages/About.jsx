@@ -17,9 +17,9 @@ function About() {
             backgroundImage: "url('main-bg.jpg')",
           }}
         >
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px] animate-fadeIn"></div>
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
 
-          <div className="relative z-10 px-4 text-center animate-fadeInUp">
+          <div className="relative z-10 px-4 text-center">
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-md">
               About Globify
             </h1>
@@ -30,7 +30,7 @@ function About() {
         </div>
 
         {/* Content Card */}
-        <div className="relative z-10 max-w-4xl my-7 mx-6 text-gray-100 backdrop-blur-xl bg-gray-900/70 border border-gray-700/40 shadow-2xl rounded-3xl p-8 md:p-12 space-y-6 text-center animate-fadeInUp">
+        <div className="relative z-10 max-w-4xl my-7 mx-6 text-gray-100 backdrop-blur-xl bg-gray-900/70 border border-gray-700/40 shadow-2xl rounded-3xl p-8 md:p-12 space-y-6 text-center">
           <p className="leading-relaxed text-lg text-gray-300">
             Welcome to{" "}
             <span className="font-semibold text-amber-400">Globify</span> – your
@@ -39,10 +39,7 @@ function About() {
             across cultures, industries, and experiences.
           </p>
 
-          <p
-            className="leading-relaxed text-lg text-gray-300 animate-fadeInUp"
-            style={{ animationDelay: "0.3s" }}
-          >
+          <p className="leading-relaxed text-lg text-gray-300">
             Our mission is to create a platform where curious minds can discover
             valuable insights, fresh perspectives, and inspiring content from
             around the globe. Whether it’s technology, lifestyle, travel, or
@@ -50,19 +47,13 @@ function About() {
             meaningful conversations.
           </p>
 
-          <p
-            className="leading-relaxed text-lg text-gray-300 animate-fadeInUp"
-            style={{ animationDelay: "0.6s" }}
-          >
+          <p className="leading-relaxed text-lg text-gray-300">
             Thank you for being part of this journey. Together, let’s keep
             learning, connecting, and growing – one story at a time.
           </p>
 
           {/* Footer note */}
-          <div
-            className="pt-4 text-sm text-gray-400 transition duration-300 hover:text-amber-400 animate-fadeInUp"
-            style={{ animationDelay: "0.9s" }}
-          >
+          <div className="pt-4 text-sm text-gray-400 hover:text-amber-400 transition-colors">
             🌍 Globify – Connecting Ideas, Inspiring Minds
           </div>
         </div>

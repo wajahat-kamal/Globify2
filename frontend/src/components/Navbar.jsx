@@ -17,7 +17,7 @@ function Navbar() {
     <nav
       className="fixed top-0 z-50 w-full backdrop-blur-md 
       bg-gradient-to-r from-blue-950 to-gray-950  
-      border-b border-amber-500/20 shadow-lg"
+      border-b border-amber-500/20 shadow-lg" 
     >
       <div className="max-w-7xl mx-auto px-5 py-3 flex justify-between items-center">
         {/* Left Section */}
