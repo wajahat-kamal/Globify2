@@ -18,7 +18,7 @@ function Navbar() {
   return (
     <nav
       className="fixed top-0 z-50 w-full backdrop-blur-md 
-      bg-gradient-to-r from-gray-950 via-blue-950 to-gray-950
+      bg-gradient-to-r from-blue-950 to-gray-950  
       border-b border-amber-500/20 shadow-lg"
     >
       <div className="max-w-7xl mx-auto px-5 py-3 flex justify-between items-center">
@@ -34,11 +34,10 @@ function Navbar() {
               alt="logo"
               className="w-10 h-10 rounded-full border border-amber-400 shadow-md group-hover:shadow-amber-400/50 transition-all"
             />
-            <span className="text-xl font-bold tracking-wide text-amber-400 drop-shadow-sm group-hover:text-amber-300 transition-colors">
+            <span className="text-2xl font-bold tracking-wide text-amber-400 drop-shadow-sm group-hover:text-amber-300 transition-colors">
               GLOBIFY
             </span>
           </Link>
-
         </div>
 
         {/* Links - Desktop */}
