@@ -24,10 +24,7 @@ const blogSchema = new mongoose.Schema(
       type: String,
       default: "/user-avatar.png",
     },
-    category: {
-      type: String,
-      default: "Unknown Author",
-    },
+  
   },
   { timestamps: true } // automatically adds createdAt & updatedAt
 );

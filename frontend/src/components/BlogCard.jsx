@@ -44,7 +44,6 @@ function BlogCard({ blog }) {
             <h4 className="font-medium text-gray-200 text-sm">
               {blog.author || "Unknown Author"}
             </h4>
-            <p className="text-xs text-gray-400">{blog.category || "Blogger"}</p>
           </div>
         </div>
       </div>
