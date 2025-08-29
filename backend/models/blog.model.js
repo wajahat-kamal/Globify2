@@ -26,7 +26,7 @@ const blogSchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      default: "General",
+      default: "Unknown Author",
     },
   },
   { timestamps: true } // automatically adds createdAt & updatedAt
