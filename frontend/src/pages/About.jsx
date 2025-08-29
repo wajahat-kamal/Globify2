@@ -12,7 +12,7 @@ function About() {
       <div className="relative min-h-screen flex flex-col items-center justify-start bg-gradient-to-b from-gray-900 via-gray-950 to-black">
         {/* Hero Section */}
         <div
-          className="relative flex flex-col justify-center items-center mt-12 w-full h-72 md:h-80 bg-cover bg-center bg-no-repeat overflow-hidden"
+          className="relative flex flex-col justify-center items-center mt-12 w-full h-72 md:h-75 bg-cover bg-center bg-no-repeat overflow-hidden"
           style={{
             backgroundImage: "url('main-bg.jpg')",
           }}
@@ -20,12 +20,12 @@ function About() {
           <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
 
           <div className="relative z-10 px-4 text-center">
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-md">
-              About Globify
-            </h1>
-            <p className="mt-3 text-base md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-amber-300 bg-clip-text text-transparent drop-shadow-lg">
+            About Globify 
+          </h1>
+          <p className="mt-3 text-base md:text-lg text-amber-100/90 max-w-2xl mx-auto leading-relaxed">
               Your one-stop destination for all your travel adventures.
-            </p>
+          </p>
           </div>
         </div>
 

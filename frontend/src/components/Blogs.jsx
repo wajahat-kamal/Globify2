@@ -3,10 +3,10 @@ import BlogCard from "./BlogCard";
 
 function Blogs() {
   return (
-    <section className="relative w-full min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black py-10">
+    <section className="relative w-full min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black py-12">
       {/* Hero Section */}
       <div
-        className="relative flex flex-col justify-center items-center text-center w-full h-72 md:h-70 bg-cover bg-center bg-no-repeat overflow-hidden"
+        className="relative flex flex-col justify-center items-center text-center w-full h-72 md:h-75 bg-cover bg-center bg-no-repeat overflow-hidden"
         style={{ backgroundImage: "url('main-bg.jpg')" }}
       >
         {/* Overlay */}
