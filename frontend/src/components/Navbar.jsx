@@ -15,9 +15,8 @@ function Navbar() {
 
   return (
     <nav
-      className="fixed top-0 z-50 w-full backdrop-blur-md 
-      bg-gradient-to-r from-blue-950 to-gray-950  
-      border-b border-amber-500/20 shadow-lg" 
+      className="fixed top-0 z-50 w-full backdrop-blur-md
+      border-b border-emerald-500/20 shadow-lg bg-black/50"
     >
       <div className="max-w-7xl mx-auto px-5 py-3 flex justify-between items-center">
         {/* Left Section */}
@@ -30,9 +29,9 @@ function Navbar() {
             <img
               src="/main-logo.png"
               alt="logo"
-              className="w-10 h-10 rounded-full border border-amber-400 shadow-md group-hover:shadow-amber-400/50 transition-all"
+              className="w-10 h-10 rounded-full border border-sky-400 shadow-md group-hover:shadow-sky-500/40 transition-all"
             />
-            <span className="text-2xl font-bold tracking-wide text-amber-400 drop-shadow-sm group-hover:text-amber-300 transition-colors">
+            <span className="text-2xl font-bold tracking-wide text-emerald-400 drop-shadow-sm group-hover:text-sky-400 transition-colors">
               GLOBIFY
             </span>
           </Link>
@@ -45,7 +44,7 @@ function Navbar() {
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
-            className="text-gray-200 hover:text-amber-400 transition-colors duration-300"
+            className="text-gray-200 hover:text-emerald-400 transition-colors duration-300"
           >
             {isOpen ? (
               <X className="w-6 h-6 transition-all duration-300" />
