@@ -1,14 +1,9 @@
-import React, { useState } from "react";
 import { Pencil } from "lucide-react";
-import {useDispatch} from "react-redux"
-import {useNavigate} from "react-router-dom"
 
 const CreateBlog = () => {
+  
+ 
 
-  const [title, setTitle] = useState("")
-
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   return (
     <div className="p-6 pt-25 md:ml-[300px] bg-gray-900 min-h-screen text-white">

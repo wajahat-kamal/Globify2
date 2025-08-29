@@ -73,3 +73,13 @@ export const updateBlog = async (req, res) => {
     });
   }
 };
+
+export const viewBlog = async (req, res) => {
+  try {
+    const blogs = await Blog.find(); 
+    res.json(blogs);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: err.message });
+  }
+}
