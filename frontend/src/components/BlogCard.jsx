@@ -1,56 +1,50 @@
 import React from "react";
 
-function BlogCard() {
+function BlogCard({ blog }) {
   return (
-    <div
-      className="bg-gray-900/60 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-amber-500/20 hover:-translate-y-2 transition-all duration-500 max-w-[360px] border border-gray-700 group animate-fadeInUp"
-      style={{ animationDelay: "1.3s" }}
-    >
+    <div className="bg-gray-900/70 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-amber-500/30 hover:-translate-y-2 transition-all duration-500 w-full max-w-sm border border-gray-800 group">
       {/* Blog Image */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden h-56">
         <img
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
-          alt="Maldives Beach"
-          className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-700"
+          src={
+            blog.image ||
+            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+          }
+          alt={blog.title}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
         />
-
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 
         {/* Date Badge */}
-        <span className="absolute bottom-3 left-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-md opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-          August 20, 2025
+        <span className="absolute bottom-4 left-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-md opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+          {blog.createdAt ? new Date(blog.createdAt).toDateString() : "Unknown"}
         </span>
       </div>
 
       {/* Blog Content */}
-      <div className="p-5">
-        <h3 className="text-lg font-semibold mb-2 text-gray-100 group-hover:text-amber-400 transition-colors duration-300 cursor-pointer line-clamp-2">
-          Discover the Serenity of Maldives: A Tropical Paradise
+      <div className="p-6">
+        <h3 className="text-xl font-semibold mb-3 text-gray-100 group-hover:text-amber-400 transition-colors duration-300 cursor-pointer line-clamp-2">
+          {blog.title}
         </h3>
-        <p className="text-sm text-gray-400 leading-relaxed line-clamp-3">
-          Escape to the Maldives, where crystal-clear waters meet golden sands.
-          Experience island life, relax under palm trees, and dive into vibrant
-          coral reefs.
+        <p className="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-4">
+          {blog.description}
         </p>
 
         {/* Divider */}
-        <div className="h-[1px] bg-gradient-to-r from-amber-500/80 via-amber-400/60 to-amber-500/80 my-3"></div>
+        <div className="h-[1px] bg-gradient-to-r from-amber-500/70 via-amber-400/50 to-amber-500/70 mb-4"></div>
 
         {/* Author Info */}
         <div className="flex items-center gap-3">
           <img
-            src="https://images.unsplash.com/photo-1607746882042-944635dfe10e"
-            alt="Sophia Bennett"
+            src={blog.authorImage || "/user-avatar.png"}
+            alt={blog.author || "Author"}
             className="w-10 h-10 rounded-full border-2 border-amber-500 object-cover shadow-sm"
           />
           <div>
             <h4 className="font-medium text-gray-200 text-sm">
-              Sophia Bennett
+              {blog.author || "Unknown Author"}
             </h4>
-            <p className="text-xs text-gray-400">
-              Travel Blogger & Photographer
-            </p>
+            <p className="text-xs text-gray-400">{blog.category || "Blogger"}</p>
           </div>
         </div>
       </div>
