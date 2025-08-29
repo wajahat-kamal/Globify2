@@ -46,21 +46,26 @@ export const updateBlog = async (req, res) => {
       });
     }
 
-    let thumbnail;
+    let thumbnail = blog.thumbnail; // pehle ka thumbnail agar file na ho to wahi rahe
     if (file) {
       const fileUri = getDataUri(file);
-      thumbnail = await cloudinary.uploader.upload(fileUri);
+      const uploadedImage = await cloudinary.uploader.upload(fileUri);
+      thumbnail = uploadedImage.secure_url;
     }
 
     const updateData = {
       title,
       description,
       author: req.id,
-      thumbnail: thumbnail?.secure_url,
+      thumbnail,
     };
-    blog = await Blog.findOneAndUpdate(blog, updateData, { new: true });
 
-    return res.status(201).json({
+    blog = await Blog.findByIdAndUpdate(blogId, updateData, {
+      new: true,
+      runValidators: true,
+    });
+
+    return res.status(200).json({
       success: true,
       message: "Blog updated successfully..",
       blog,
@@ -70,9 +75,11 @@ export const updateBlog = async (req, res) => {
     return res.status(500).json({
       success: false,
       message: "Failed to update blog.",
+      error: error.message,
     });
   }
 };
+
 
 export const viewBlog = async (req, res) => {
   try {

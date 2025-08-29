@@ -4,33 +4,33 @@ const blogSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      require: true,
+      required: true,
+      trim: true,
     },
     description: {
       type: String,
+      minlength: 20,
     },
-    thumbnail: {
+    image: {
       type: String,
-      require: true,
+      default:
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e", // default thumbnail
     },
     author: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      type: String,
+      trim: true,
     },
-    // likes: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "User",
-    // },
-    // comments: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "User",
-    // },
-    isPublish: {
-      type: Boolean,
-      default: false,
+    authorImage: {
+      type: String,
+      default: "/user-avatar.png",
+    },
+    category: {
+      type: String,
+      default: "General",
     },
   },
-  { timestamps: true }
+  { timestamps: true } // automatically adds createdAt & updatedAt
 );
 
 export const Blog = mongoose.model("Blog", blogSchema);
+
