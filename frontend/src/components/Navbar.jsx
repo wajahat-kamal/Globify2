@@ -29,9 +29,9 @@ function Navbar() {
             <img
               src="/main-logo.png"
               alt="logo"
-              className="w-10 h-10 rounded-full border border-sky-400 shadow-md group-hover:shadow-sky-500/40 transition-all"
+              className="w-10 h-10 rounded-full border border-amber-400 shadow-md group-hover:shadow-amber-300/40 transition-all"
             />
-            <span className="text-2xl font-bold tracking-wide text-emerald-400 drop-shadow-sm group-hover:text-sky-400 transition-colors">
+            <span className="text-2xl font-bold tracking-wide text-amber-300 drop-shadow-sm group-hover:text-amber-400 transition-colors">
               GLOBIFY
             </span>
           </Link>
