@@ -2,7 +2,7 @@ import React from "react";
 
 function BlogCard({ blog }) {
   return (
-    <div className="bg-gray-900/70 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-amber-500/30 hover:-translate-y-2 transition-all duration-500 w-full h-110 max-w-sm border border-gray-800 group">
+    <div className="bg-white/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-amber-500/30 hover:-translate-y-2 transition-all duration-500 w-full h-110 max-w-sm border border-gray-800 group">
       {/* Blog Image */}
       <div className="relative overflow-hidden h-48">
         <img
@@ -23,10 +23,10 @@ function BlogCard({ blog }) {
 
       {/* Blog Content */}
       <div className="p-6">
-        <h3 className="text-xl font-semibold mb-3 text-gray-100 group-hover:text-amber-400 transition-colors duration-300 cursor-pointer line-clamp-2">
+        <h3 className="text-xl font-semibold mb-3 text-gray-800 group-hover:text-amber-400 transition-colors duration-300 cursor-pointer line-clamp-2">
           {blog.title}
         </h3>
-        <p className="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-4">
+        <p className="text-sm text-gray-500 leading-relaxed line-clamp-3 mb-4">
           {blog.description}
         </p>
 
@@ -41,7 +41,7 @@ function BlogCard({ blog }) {
             className="w-10 h-10 rounded-full border-2 border-amber-500 object-cover shadow-sm"
           />
           <div>
-            <h4 className="font-medium text-gray-200 text-sm">
+            <h4 className="font-medium text-gray-600 text-sm">
               {blog.author || "Unknown Author"}
             </h4>
           </div>
