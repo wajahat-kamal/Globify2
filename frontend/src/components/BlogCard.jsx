@@ -2,7 +2,7 @@ import React from "react";
 
 function BlogCard({ blog }) {
   return (
-    <div className="bg-white/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-amber-500/30 hover:-translate-y-2 transition-all duration-500 w-full h-110 max-w-sm border border-gray-800 group">
+    <div className="bg-white/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-amber-500/30 hover:-translate-y-2 transition-all duration-500 w-full h-105 max-h-110 max-w-sm border border-gray-800 group">
       {/* Blog Image */}
       <div className="relative overflow-hidden h-48">
         <img
