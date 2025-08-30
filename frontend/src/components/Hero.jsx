@@ -5,7 +5,7 @@ import "../index.css"; // Custom CSS animations
 function Hero() {
   return (
     <section
-      className="relative w-full min-h-screen flex justify-center items-center overflow-hidden text-white bg-cover bg-center bg-no-repeat bg-fixed"
+      className="relative w-full min-h-screen flex justify-center items-center overflow-hidden text-white bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: "url('main-bg.jpg')",
       }}

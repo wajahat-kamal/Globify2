@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import Hero from "../components/Hero";
-import Blogs from "../components/Blogs";
+import CategoriesSection from "../components/CategorySection";
 
 function Home() {
   return (
@@ -11,7 +11,7 @@ function Home() {
       </Helmet>
 
       <Hero />
-      <Blogs/>
+      <CategoriesSection/>
     </>
   );
 }

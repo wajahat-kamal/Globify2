@@ -27,31 +27,43 @@ function MobileNavbar({ toggleMenu, user, isOpen }) {
     >
       {/* General Links */}
       <nav className="space-y-3">
-        <Link
-          to="/"
-          onClick={toggleMenu}
-          className="flex items-center gap-3 px-4 py-2 text-gray-200 hover:text-amber-400 hover:bg-white/5 rounded-lg transition"
-        >
-          <Home size={18} />
-          <span className="font-semibold">Home</span>
-        </Link>
-        <Link
-          to="/blogs"
-          onClick={toggleMenu}
-          className="flex items-center gap-3 px-4 py-2 text-gray-200 hover:text-amber-400 hover:bg-white/5 rounded-lg transition"
-        >
-          <BookOpen size={18} />
-          <span className="font-semibold">Blogs</span>
-        </Link>
-        <Link
-          to="/about"
-          onClick={toggleMenu}
-          className="flex items-center gap-3 px-4 py-2 text-gray-200 hover:text-amber-400 hover:bg-white/5 rounded-lg transition"
-        >
-          <Info size={18} />
-          <span className="font-semibold">About</span>
-        </Link>
-      </nav>
+  <Link
+    to="/"
+    onClick={toggleMenu}
+    className="flex items-center gap-3 px-4 py-2 text-gray-200 hover:text-amber-400 hover:bg-white/5 rounded-lg transition relative group"
+  >
+    <Home size={18} />
+    <span className="font-semibold relative">
+      Home
+      <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
+    </span>
+  </Link>
+
+  <Link
+    to="/blogs"
+    onClick={toggleMenu}
+    className="flex items-center gap-3 px-4 py-2 text-gray-200 hover:text-amber-400 hover:bg-white/5 rounded-lg transition relative group"
+  >
+    <BookOpen size={18} />
+    <span className="font-semibold relative">
+      Blogs
+      <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
+    </span>
+  </Link>
+
+  <Link
+    to="/about"
+    onClick={toggleMenu}
+    className="flex items-center gap-3 px-4 py-2 text-gray-200 hover:text-amber-400 hover:bg-white/5 rounded-lg transition relative group"
+  >
+    <Info size={18} />
+    <span className="font-semibold relative">
+      About
+      <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
+    </span>
+  </Link>
+</nav>
+
 
       <div className="border-t border-gray-700/50 my-4"></div>
 

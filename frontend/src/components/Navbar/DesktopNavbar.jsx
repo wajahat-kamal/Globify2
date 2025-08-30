@@ -15,21 +15,26 @@ function DesktopNavbar({ user, setShowLogoutPopup }) {
       <nav className="flex items-center gap-6">
         <Link
           to="/"
-          className="text-white/80 hover:text-amber-300 transition-colors duration-200 font-semibold"
+          className="relative group text-white/80 hover:text-amber-300 transition-colors duration-200 font-semibold"
         >
           Home
+          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-300 group-hover:w-full transition-all duration-300"></span>
         </Link>
+
         <Link
           to="/about"
-          className="text-white/80 hover:text-amber-300 transition-colors duration-200 font-semibold"
+          className="relative group text-white/80 hover:text-amber-300 transition-colors duration-200 font-semibold"
         >
           About
+          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-300 group-hover:w-full transition-all duration-300"></span>
         </Link>
+
         <Link
           to="/blogs"
-          className="text-white/80 hover:text-amber-300 transition-colors duration-200 font-semibold"
+          className="relative group text-white/80 hover:text-amber-300 transition-colors duration-200 font-semibold"
         >
           Blogs
+          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-300 group-hover:w-full transition-all duration-300"></span>
         </Link>
       </nav>
 
@@ -121,30 +126,29 @@ function DesktopNavbar({ user, setShowLogoutPopup }) {
         </div>
       ) : (
         <div className="flex items-center gap-3">
-        <Link to="/signup">
-          <button
-            className="px-6 py-2.5 rounded-lg font-semibold text-white 
+          <Link to="/signup">
+            <button
+              className="px-6 py-2.5 rounded-lg font-semibold text-white 
             bg-gradient-to-r from-amber-500 to-amber-600 
             shadow-md hover:from-amber-400 hover:to-amber-500 
             hover:shadow-lg hover:scale-102 
             active:scale-95 transition-all duration-300"
-          >
-            Signup
-          </button>
-        </Link>
-        <Link to="/login">
-          <button
-            className="px-6 py-2.5 rounded-lg font-semibold text-white 
+            >
+              Signup
+            </button>
+          </Link>
+          <Link to="/login">
+            <button
+              className="px-6 py-2.5 rounded-lg font-semibold text-white 
             bg-gradient-to-r from-blue-600 to-blue-700 
             shadow-md hover:from-blue-500 hover:to-blue-600 
             hover:shadow-lg hover:scale-102
             active:scale-95 transition-all duration-300"
-          >
-            Login
-          </button>
-        </Link>
-      </div>
-      
+            >
+              Login
+            </button>
+          </Link>
+        </div>
       )}
     </div>
   );
